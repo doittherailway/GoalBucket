@@ -24,8 +24,8 @@ class Goal extends React.Component {
             return (<div>There are no Goals</div>)
         } else {
             return (
-                <div>
-                    <h2>All Goals</h2>
+                <div className="goals-index">
+                    <h2 className="goal-title">All Goals</h2>
                     {this.state.goals.map(goal => (
                         <GoalIndexItem key={goal._id} goal={goal} />
                     ))}
