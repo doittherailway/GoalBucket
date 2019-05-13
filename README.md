@@ -87,17 +87,17 @@ Technical Challenges:
   * Add seed data
   * Decide on selectors for index feed
   * Additional styling
-  * Goals actions/axiom requests
+  * Goals actions/axios requests
 
 
 ### May 14
 * Jay:
-  * Followers/Following actions/axiom requests
+  * Followers/Following actions/axios requests
 * Keyang:
   * Followers/Following components
 * Priya:
   * User profile component
-  * Cheers actions/axiom requests
+  * Cheers actions/axios requests
 * Sandi:
   * Goal stats container and component
 * All
