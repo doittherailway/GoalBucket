@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 
 const users = require("./routes/api/users");
-const tweets = require("./routes/api/tweets");
+const goals = require("./routes/api/goals");
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/stylesheets", express.static(__dirname + '/frontend/public/stylesheets'));
 app.use("/api/users", users);
-app.use("/api/tweets", tweets);
+app.use("/api/goals", goals);
 
 const port = process.env.PORT || 5000;
 
