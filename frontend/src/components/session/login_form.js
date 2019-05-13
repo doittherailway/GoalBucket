@@ -44,40 +44,45 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
-    // Render the session errors if there are any
     renderErrors() {
-        return (
-            <ul>
-                {Object.keys(this.state.errors).map((error, i) => (
-                    <li key={`error-${i}`}>
-                        {this.state.errors[error]}
-                    </li>
-                ))}
-            </ul>
-        );
+        let errors = Object.keys(this.state.errors)
+
+        if (errors.length > 0) {
+            return (
+                <ul>
+                    {errors.map((error, i) => (
+                        <li key={`error-${i}`}>
+                            {this.state.errors[error]}
+                        </li>
+                    ))}
+                </ul>
+            );
+        }
     }
 
     render() {
         return (
-            <div className="session-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="session-form">
+            <div className='modal-background'
+                onClick={this.props.clearModal}>
+                <div className="session-form-container"
+                    onClick={e => e.stopPropagation()}>
+                    <h1>LOGIN</h1>
+                    <form onSubmit={this.handleSubmit}
+                        className="session-form">
                         <input type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder="Email"
                         />
-                        <br />
                         <input type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"
                         />
-                        <br />
                         <input type="submit" value="Submit" />
                         {this.renderErrors()}
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }
