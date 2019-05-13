@@ -13,6 +13,7 @@ class GoalForm extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this); 
+        this.handleCheck = this.handleCheck.bind(this);
     } 
 
     handleChange(type) {
