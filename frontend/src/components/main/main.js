@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import GoalsContainer from '../goals/goals_container';
 import ProfileContainer from '../profile/profile_container';
@@ -20,15 +21,21 @@ class Main extends React.Component {
     render() {
         return (
             <div className='main-page'>
-                <AsideContainer switchPane={this.switchPane} />
-                <div className='main-page-right'>
-                    {this.state.selected === 'goals' ? <GoalsContainer /> : ''}
-                    {this.state.selected === 'profile' ? <ProfileContainer /> : ''}
-                    {this.state.selected === 'create' ? <CreateGoalFormContainer /> : ''}
+                <div>
+                    <AsideContainer switchPane={this.switchPane} />
+                    <div className='main-page-right' id={this.props.aside ? '' : 'aside-overlay' }>
+                        {this.state.selected === 'goals' ? <GoalsContainer /> : ''}
+                        {this.state.selected === 'profile' ? <ProfileContainer /> : ''}
+                        {this.state.selected === 'create' ? <CreateGoalFormContainer /> : ''}
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default Main;
+const mapStateToProps = state => ({
+    aside: state.ui.aside
+});
+
+export default connect(mapStateToProps)(Main);
