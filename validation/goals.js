@@ -29,7 +29,7 @@ module.exports = function ValidateGoalInput(data) {
 
 
     // Goal goalAmount validation
-    if (!Validator.isNumber(data.goalAmount)) {
+    if (!Validator.isInt(data.goalAmount)) {
         errors.text = 'Goal goalAmount has to be a number';
     }
 

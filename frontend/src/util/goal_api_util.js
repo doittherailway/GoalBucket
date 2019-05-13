@@ -9,5 +9,6 @@ export const getUserGoals = id => {
 };
 
 export const addGoal = data => {
+    // debugger
     return axios.post('/api/goals/', data);
 };
