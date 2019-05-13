@@ -17,11 +17,11 @@ class NavBar extends React.Component {
     }
 
     handleSignup() {
-        this.props.receiveModal('signup')
+        this.props.receiveModal('signup');
     }
 
     handleLogin() {
-        this.props.receiveModal('login')
+        this.props.receiveModal('login');
     }
 
     // Selectively render links dependent on whether the user is logged in
@@ -29,7 +29,12 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div>
-                    <Link to={'/profile'}>Profile</Link>
+                    <div className="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div>
+                        <h3>GOALBUCKET</h3>
+                    </div>
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
             );
