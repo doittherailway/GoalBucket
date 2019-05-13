@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'; 
-import GoalForm from 'goal_form'; 
+import GoalForm from './goal_form'; 
 import { createGoal } from '../../actions/goal_actions';  
 
 const mapStateToProps = state => ({
