@@ -12,7 +12,7 @@ class Goal extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchAllGoals();
+        this.props.fetchGoals();
     }
 
     componentWillReceiveProps(newState) {
