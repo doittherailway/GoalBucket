@@ -4,9 +4,6 @@ class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
-        this.getLinks = this.getLinks.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-        this.handleSignup = this.handleSignup.bind(this);
     }
 
     logoutUser(e) {
@@ -14,43 +11,34 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
-    handleSignup() {
-        this.props.receiveModal('signup');
-    }
-
-    handleLogin() {
-        this.props.receiveModal('login');
-    }
-
-    // Selectively render links dependent on whether the user is logged in
-    getLinks() {
-        if (this.props.loggedIn) {
+    renderHamburger() {
+        if (this.props.aside) {
             return (
-                <div>
-                    <div className="hamburger">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                    <div>
-                        <h3>GOALBUCKET</h3>
-                    </div>
-                    <button onClick={this.logoutUser}>Logout</button>
+                <div className='aside-button'
+                    id="aside-selected"
+                    onClick={this.props.hideAside}>
+                    <i className="fa fa-bars"></i>
                 </div>
-            );
+            )
         } else {
             return (
-                <div>
-                    <div onClick={this.handleSignup}>Sign up</div>
-                    <div onClick={this.handleLogin}>Login</div>
+                <div className='aside-button'
+                    onClick={this.props.showAside}>
+                    <i className="fa fa-bars"></i>
                 </div>
-            );
+            )
         }
     }
 
     render() {
         return (
-            <div>
-                <h1>ACHIEVER</h1>
-                {this.getLinks()}
+            <div className='nav-bar-main'>
+                {this.renderHamburger()}
+                <h1>GOAL BUCKET</h1>
+                <div onClick={this.logoutUser}
+                    className='logout-button'>
+                    <div>Logout</div>
+                </div>
             </div>
         );
     }
