@@ -28,21 +28,21 @@ module.exports = function ValidateGoalInput(data) {
     }
 
 
-    // Goal howMany validation
-    if (!Validator.isNumber()) {
-        errors.text = 'Goal howMany has to be a number';
+    // Goal goalAmount validation
+    if (!Validator.isNumber(data.goalAmount)) {
+        errors.text = 'Goal goalAmount has to be a number';
     }
 
 
-    // Goal ofWhat validation
-    data.ofWhat = validText(data.ofWhat) ? data.ofWhat : "";
+    // Goal goalType validation
+    data.goalType = validText(data.goalType) ? data.goalType : "";
 
-    if (!Validator.isLength(data.ofWhat, { min: 5, max: 40 })) {
-        errors.text = 'Goal ofWhat must be between 5 and 40 characters';
+    if (!Validator.isLength(data.goalType, { min: 5, max: 40 })) {
+        errors.text = 'Goal goalType must be between 5 and 40 characters';
     }
 
-    if (Validator.isEmpty(data.ofWhat)) {
-        errors.text = 'Goal ofWhat is required';
+    if (Validator.isEmpty(data.goalType)) {
+        errors.text = 'Goal goalType is required';
     }
 
     return {
