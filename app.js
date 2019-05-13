@@ -19,7 +19,7 @@ require('./config/passport')(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use("/stylesheets", express.static(__dirname + '/frontend/public/stylesheets'));
 app.use("/api/users", users);
 app.use("/api/tweets", tweets);
 
