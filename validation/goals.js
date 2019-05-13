@@ -8,11 +8,11 @@ module.exports = function ValidateGoalInput(data) {
     data.title = validText(data.title) ? data.title : "";
 
     if (!Validator.isLength(data.title, {min: 5, max: 40})) {
-        errors.text = 'Goal title must be between 5 and 40 characters';
+        errors.title = 'Goal title must be between 5 and 40 characters';
     }
 
     if (Validator.isEmpty(data.title)) {
-        errors.text = 'Goal title is required';
+        errors.title = 'Goal title is required';
     }
 
 
@@ -20,17 +20,21 @@ module.exports = function ValidateGoalInput(data) {
     data.description = validText(data.description) ? data.description : "";
 
     if (!Validator.isLength(data.description, { min: 5, max: 140 })) {
-        errors.text = 'Goal description must be between 5 and 140 characters';
+        errors.description = 'Goal description must be between 5 and 140 characters';
     }
 
     if (Validator.isEmpty(data.description)) {
-        errors.text = 'Goal description is required';
+        errors.description = 'Goal description is required';
     }
 
 
     // Goal goalAmount validation
-    if (!Validator.isInt(data.goalAmount)) {
-        errors.text = 'Goal goalAmount has to be a number';
+    if (!Validator.isInt(String(data.goalAmount))) {
+        errors.goalAmount = 'Goal amount has to be a number';
+    }
+
+    if ( data.goalAmount < 1) {
+        errors.goalAmount = "Goal amount should probably greater than zero"; 
     }
 
 
@@ -38,11 +42,11 @@ module.exports = function ValidateGoalInput(data) {
     data.goalType = validText(data.goalType) ? data.goalType : "";
 
     if (!Validator.isLength(data.goalType, { min: 5, max: 40 })) {
-        errors.text = 'Goal goalType must be between 5 and 40 characters';
+        errors.goalType = 'Goal type must be between 5 and 40 characters';
     }
 
     if (Validator.isEmpty(data.goalType)) {
-        errors.text = 'Goal goalType is required';
+        errors.goalType = 'Goal type is required';
     }
 
     return {

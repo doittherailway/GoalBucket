@@ -4,7 +4,8 @@ import { createGoal } from '../../actions/goal_actions';
 
 const mapStateToProps = state => ({
     currentUserId: state.session.user,
-    newGoal: state.goals.new
+    newGoal: state.goals.new,
+    errors: state.errors.goals
 }); 
 
 const mapDispatchToProps = dispatch => ({
