@@ -30,12 +30,16 @@ const GoalSchema = new Schema({
         type: Date
     },
 
-    howMany: {
+    endDate: {
+        type: Date
+    },
+
+    goalAmount: {
         type: Number,
         required: true
     },
 
-    ofWhat: {
+    goalType: {
         type: String,
         required: true
     },
