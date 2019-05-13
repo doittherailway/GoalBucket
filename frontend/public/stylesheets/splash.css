@@ -1,0 +1,35 @@
+.splash {
+    display: flex; 
+    flex-direction: row; 
+}
+
+.splash-left {
+    position: relative; 
+    width: 500px;
+    height: 500px; 
+
+}
+.bottom-img {
+    position: absolute; 
+    height: 100px;
+    width: 100px; 
+    object-fit: cover; 
+}
+
+.middle-img {
+    position: absolute; 
+    height: 100%;
+    width: 100%; 
+    object-fit: cover;
+}
+
+.top-img {
+    position: absolute; 
+    height: 100%;
+    width: 100%; 
+    object-fit: cover; 
+}
+
+.splash-right {
+    width: 40%;
+}
