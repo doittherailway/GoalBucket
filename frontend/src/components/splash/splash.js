@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { receiveModal } from '../../actions/ui_actions';
 
-class MainPage extends React.Component {
+class Splash extends React.Component {
 
     constructor(props) {
         super(props);
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => ({
     receiveModal: modal => dispatch(receiveModal(modal))
 })
 
-export default connect(null, mapDispatchToProps)(MainPage);
+export default connect(null, mapDispatchToProps)(Splash);
