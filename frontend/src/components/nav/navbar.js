@@ -7,6 +7,8 @@ class NavBar extends React.Component {
         super(props);
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.handleSignup = this.handleSignup.bind(this);
     }
 
     logoutUser(e) {
@@ -14,22 +16,28 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
+    handleSignup() {
+        this.props.receiveModal('signup')
+    }
+
+    handleLogin() {
+        this.props.receiveModal('login')
+    }
+
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
         if (this.props.loggedIn) {
             return (
                 <div>
-                    <Link to={'/tweets'}>All Tweets</Link>
                     <Link to={'/profile'}>Profile</Link>
-                    <Link to={'/new_tweet'}>Write a Tweet</Link>
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
             );
         } else {
             return (
                 <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
+                    <div onClick={this.handleSignup}>Sign up</div>
+                    <div onClick={this.handleLogin}>Login</div>
                 </div>
             );
         }
