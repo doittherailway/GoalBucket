@@ -39,6 +39,11 @@ const GoalSchema = new Schema({
         required: true
     },
 
+    goalCurrentAmount: {
+        type: Number,
+        default: 0
+    },
+
     goalType: {
         type: String,
         required: true
