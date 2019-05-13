@@ -1,35 +1,89 @@
 .splash {
     display: flex; 
     flex-direction: row; 
+    background-color: #fffaf0;
 }
 
 .splash-left {
     position: relative; 
-    width: 500px;
-    height: 500px; 
-
-}
-.bottom-img {
-    position: absolute; 
-    height: 100px;
-    width: 100px; 
-    object-fit: cover; 
+    width: 55%;
+    height: 700px;
+    box-sizing: border-box;
+    left: 0;
+    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2);
 }
 
-.middle-img {
+.splash-left img {
     position: absolute; 
+    left: 0; 
     height: 100%;
     width: 100%; 
     object-fit: cover;
+    animation-name: FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+    animation-direction: alternate; 
 }
 
-.top-img {
-    position: absolute; 
-    height: 100%;
-    width: 100%; 
-    object-fit: cover; 
+@keyframes FadeInOut {
+    0% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.splash-img-1 {
+    animation-delay: 10s;
+}
+
+.splash-img-2 {
+    animation-delay: 6s;
+}
+
+.splash-img-3 {
+    animation-delay: 2s;
 }
 
 .splash-right {
-    width: 40%;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    width: 45%;
+    box-sizing: border-box;
+    padding: 2%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.splash-right .splash-logo {
+    font-size: 7em;
+    font-weight: 100; 
+    padding: 5px 0;
+}
+
+.splash-right .auth-modal {
+    position: absolute; 
+    font-size: 1.2em;
+    right: 0;
+    top: 0;
+    padding: 40px; 
+    font-weight: 300; 
+}
+
+.splash-right .auth-modal strong {
+    transition: font-size 0.2s ease-in-out; 
+}
+
+.splash-right .auth-modal strong:hover {
+    cursor: pointer;
+    font-size: 1.25em;
 }
