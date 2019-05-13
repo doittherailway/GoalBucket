@@ -35,11 +35,26 @@ class Aside extends React.Component {
         return (
             <div className='aside-main'>
                 <div onClick={this.handleGoals}
-                    className={this.state.selected === 'goals' ? 'selected-aside' : ''}>Goals</div>
+                    className={this.state.selected === 'goals' ? 'selected-aside' : ''}>
+                    <div className='aside-icon-container'>
+                        <i className="fas fa-mountain"></i>
+                    </div>
+                    <div className='aside-menu-text'>Goals</div>
+                </div>
                 <div onClick={this.handleProfile}
-                    className={this.state.selected === 'profile' ? 'selected-aside' : ''}>Profile</div>
+                    className={this.state.selected === 'profile' ? 'selected-aside' : ''}>
+                    <div className='aside-icon-container'>
+                        <i className="far fa-user"></i>
+                    </div>
+                    <div className='aside-menu-text'>Profile</div>
+                </div>
                 <div onClick={this.handleCreate}
-                    className={this.state.selected === 'create' ? 'selected-aside' : ''}>Create Goal</div>
+                    className={this.state.selected === 'create' ? 'selected-aside' : ''}>
+                    <div className='aside-icon-container'>
+                        <i className="far fa-plus-square"></i>
+                    </div>
+                    <div className='aside-menu-text'>Create Goal</div>
+                </div>
             </div>
         );
     }
