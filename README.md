@@ -31,9 +31,24 @@
 
 ## Technologies and Technical Challenges
 
+Backend
+* MongoDB
+* Express
+* Node.js
+Frontend
+* React
+* Redux
+* Javascript
+
+Technical Challenges:
+* Learning MERN stack
 
 ## Things Accomplished Over the Weekend
- * Planning, familiarisation with MERN stack, user auth
+ * Planning project
+ * Familiarisation with MERN stack, user auth
+ * Set up database
+ * Wrote proposal READme
+ * Created wireframes
 
 ## Group Members and Work Breakdown
 
@@ -48,7 +63,7 @@
 * Routing - Priya
 * Models - Sandi
 * Validations - Priya
-* Proposal writing - Sandi
+* Proposal/Readme - Sandi
 * Splash page - Keyang
 * Session forms modal - Jay
 * Stylesheet initializing - Jay/Keyang
@@ -93,3 +108,6 @@
 ### May 15
 * Production READme
 * Styling 
+
+## Plan for getting users
+ * Sharing with friends and family
