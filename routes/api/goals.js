@@ -39,6 +39,7 @@ router.get('/:id', (req, res) => {
 router.post('/', 
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
+        // debugger
         const { errors, isValid } = validateGoalInput(req.body);
 
         if (!isValid) {

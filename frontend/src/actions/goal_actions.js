@@ -27,11 +27,12 @@ export const fetchGoals = () => dispatch => (
 
 );
 
-export const createGoal = goal => dispatch => (
-    addGoal(goal) 
+export const createGoal = goal => dispatch => {
+    // debugger
+    return addGoal(goal) 
         .then(newGoal => dispatch(receiveGoal(newGoal)))
         .catch(err => console.log(err))
-);
+};
 
 export const fetchUserGoals = () => dispatch => (
     getUserGoals()
