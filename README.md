@@ -111,3 +111,8 @@ Technical Challenges:
 
 ## Plan for getting users
  * Sharing with friends and family
+ 
+### Wireframes
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Splash.png "Splash")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Feed.png "Feed")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Profile.png "Profile")
