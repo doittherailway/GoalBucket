@@ -14,6 +14,7 @@ class GoalForm extends React.Component {
         this.handleChange = this.handleChange.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.handleCheck = this.handleCheck.bind(this);
+        this.renderErrors = this.renderErrors.bind(this); 
     } 
 
     handleChange(type) {
@@ -37,6 +38,16 @@ class GoalForm extends React.Component {
 
     handleCheck(){
         this.setState( { timed: !this.state.timed } ); 
+    }
+
+    renderErrors() { 
+        if ( this.props.errors.length !== 0 ) {
+            return (
+                <ul>
+                    {this.props.errors.map((err) => <li>{err}</li>)}
+                </ul>
+            );
+        }
     }
     
     render() {
@@ -81,16 +92,18 @@ class GoalForm extends React.Component {
                         </label>
                     </div>
 
-                    <div className="input">
-                        <label>end date</label>
-                        <input type="date" 
-                            onChange={this.handleChange('endDate')}
-                            value={this.state.endDate}/>
-                    </div>
-                    
-                    <button>submit</button>
-                </form>
-            </div>
+                <div className="input">
+                    <label>end date</label>
+                    <input type="date" 
+                        onChange={this.handleChange('endDate')}
+                        value={this.state.endDate}/>
+                </div>
+                
+                <button>submit</button>
+
+                {this.renderErrors()}
+            </form>
+        </div>
         );
     }
 }
