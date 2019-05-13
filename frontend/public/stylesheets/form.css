@@ -1,3 +1,43 @@
+.goal-form-outer-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+
+.goal-form-outer-div h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .goal-form {
     margin-top: 0;
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+}
+
+.goal-form label {
+    text-transform: capitalize;
+}
+
+.goal-form input {
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 250px;
+}
+
+.goal-form textarea {
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 50px;
+    max-height: 200px;
 }

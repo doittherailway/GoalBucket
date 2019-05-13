@@ -52,44 +52,45 @@ class GoalForm extends React.Component {
     
     render() {
         return(
-             
-            <form className="goal-form" onSubmit={this.handleSubmit}>
+            <div className="goal-form-outer-div">
+                <h3>Add a new Goal</h3>
+                <form className="goal-form" onSubmit={this.handleSubmit}>
 
-                <div className="input">
-                    <label>title</label>
-                    <input type="text" 
-                        onChange={this.handleChange('title')}
-                        value={this.state.title}/>
-                </div>
+                    <div className="input">
+                        <label>title</label>
+                        <input type="text" 
+                            onChange={this.handleChange('title')}
+                            value={this.state.title}/>
+                    </div>
 
-                <div className="input">
-                    <label>description</label>
-                    <textarea 
-                        onChange={this.handleChange('description')}
-                        value={this.state.description}/>
-                </div>
+                    <div className="input">
+                        <label>description</label>
+                        <textarea 
+                            onChange={this.handleChange('description')}
+                            value={this.state.description}/>
+                    </div>
 
-                <div className="input">
-                    <label>goal amount</label>
-                    <input type="number" 
-                        onChange={this.handleChange('goalAmount')}
-                        value={this.state.goalAmount}/>
-                </div>
+                    <div className="input">
+                        <label>goal amount</label>
+                        <input type="number" 
+                            onChange={this.handleChange('goalAmount')}
+                            value={this.state.goalAmount}/>
+                    </div>
 
-                <div className="input">
-                    <label>goal type</label>
-                    <input type="text" 
-                        onChange={this.handleChange('goalType')}
-                        value={this.state.goalType}/>
-                </div>
+                    <div className="input">
+                        <label>goal type</label>
+                        <input type="text" 
+                            onChange={this.handleChange('goalType')}
+                            value={this.state.goalType}/>
+                    </div>
 
-                <div className="input">
-                    <label>timed
-                        <input type="checkbox"
-                            defaultChecked={this.state.timed}
-                            onChange={this.handleCheck}/>
-                    </label>
-                </div>
+                    <div className="input">
+                        <label>timed
+                            <input type="checkbox"
+                                defaultChecked={this.state.timed}
+                                onChange={this.handleCheck}/>
+                        </label>
+                    </div>
 
                 <div className="input">
                     <label>end date</label>
@@ -102,6 +103,7 @@ class GoalForm extends React.Component {
 
                 {this.renderErrors()}
             </form>
+        </div>
         );
     }
 }
