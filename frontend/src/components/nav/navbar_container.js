@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     receiveModal: modal => dispatch(receiveModal(modal)),
-    logout: dispatch => dispatch(logout())
+    logout: () => dispatch(logout())
 })
 
 export default connect(
