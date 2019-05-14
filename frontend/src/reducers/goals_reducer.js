@@ -1,7 +1,7 @@
 import { 
     RECEIVE_GOALS, 
     RECEIVE_GOAL,
-    RECEIVE_USER_GOALS
+    // RECEIVE_USER_GOALS
     } from '../actions/goal_actions'; 
 
 const goalsReducer = (state = {}, action) => {
