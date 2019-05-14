@@ -3,7 +3,7 @@ import React from 'react';
 class GoalIndexItem extends React.Component {
 
     progressBarSpan(percentageCompleted) {
-        console.log(percentageCompleted);
+        // console.log(percentageCompleted);
         if( percentageCompleted === '100%' ) {
             return (
                 <span className="progress-bar-completed-done" style={{ width: percentageCompleted }}></span>
