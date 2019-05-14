@@ -51,7 +51,7 @@
 }
 
 input[type='submit'] {
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     width: 100%;
     height: 35px;
     background-color: #738290;
@@ -64,6 +64,27 @@ input[type='submit'] {
 }
 
 input[type='submit']:hover {
+    background-color: #8a9cad;
+}
+
+.demo-login-btn {
+    margin-bottom: 0px;
+    width: 100%;
+    height: 35px;
+    background-color: #738290;
+    transition: background-color 0.2s;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0px 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #738290;
+    /* outline: none; */
+}
+
+.demo-login-btn:hover {
     background-color: #8a9cad;
 }
 

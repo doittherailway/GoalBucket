@@ -1,4 +1,10 @@
-import { getGoals, getUserGoals, addGoal, updateGoal } from '../util/goal_api_util'; 
+import { getGoals, 
+    getUserGoals, 
+    addGoal,
+    updateGoal,
+    addCheer,
+    removeCheer
+} from '../util/goal_api_util'; 
 
 export const RECEIVE_GOALS = "RECEIVE_GOALS"; 
 export const RECEIVE_GOAL = "RECEIVE_GOAL";
@@ -48,6 +54,18 @@ export const fetchUserGoals = () => dispatch => (
 
 export const patchGoal = goal => dispatch => (
     updateGoal(goal)
+        .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
+        .catch(err => console.log(err.response.data))
+);
+
+export const createCheer = goalId => dispatch => (
+    addCheer(goalId)
+        .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
+        .catch(err => console.log(err.response.data))
+);
+
+export const deleteCheer = goalId => dispatch => (
+    removeCheer(goalId)
         .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
         .catch(err => console.log(err.response.data))
 );
