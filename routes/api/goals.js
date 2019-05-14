@@ -70,6 +70,9 @@ router.patch('/:id',
     (req, res) => {
         Goal.findById(req.params.id)
             .then(goal => {
+                if(req.body._id) {
+                    delete req.body._id;
+                }    
                 let { title, description, goalCurrentAmount, done} = req.body; 
                 if (title) {
                     goal.title = title; 
