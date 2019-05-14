@@ -84,8 +84,8 @@ router.post('/login', (req, res) => {
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
-                            // Tell the key to expire in one hour
-                            { expiresIn: 3600 },
+                            // Tell the key to expire in 6 hours
+                            { expiresIn: 21600 },
                             (err, token) => {
                                 res.json({
                                     success: true,
@@ -101,7 +101,9 @@ router.post('/login', (req, res) => {
 
 // You may want to start commenting in information about your routes so that you can find the appropriate ones quickly.
 
-router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/current', 
+    passport.authenticate('jwt', { session: false }), 
+    (req, res) => {
     res.json({
         id: req.user.id,
         handle: req.user.handle,
@@ -109,6 +111,48 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 });
 
+router.patch('/follow/:user_id', 
+    passport.authenticate('jwt', {session: false}),
+    (req, res) => {
 
+        User.findById(req.user.id)
+            .then( currUser => {
+
+                if (!currUser.following.includes(req.params.user_id)) {
+                    currUser.following.push(req.params.user_id); 
+                }
+                let data = []; 
+
+                User.findById(req.params.user_id)
+                    .then( followedUser => {
+                        if (!followedUser.followers.includes(req.user.id)) {
+                            followedUser.followers.push(req.user.id);
+                        }
+                        followedUser.save()
+                            .then(updatedfollowing => data.push(updatedfollowing))
+                            .catch(err => res.status(422).json(err)); 
+                    })
+                    .then(() => {
+                        return currUser.save()
+                            .then(updatedfollower => {
+                                data.push(updatedfollower);
+                                let dataIndex = {}; 
+
+                                for (let i = 0; i < data.length; i++) {
+                                    dataIndex[data[i].id] = data[i]; 
+                                }
+                                return res.json(dataIndex); 
+                                })
+                            .catch(err => res.status(422).json(err));  });   
+            });     
+    }
+);
+
+router.delete('/follow/:user_id',
+    passport.authenticate('jwt', {session: false}),
+    (req, res) => {
+        // need work here. 
+    } 
+);
 
 module.exports = router;

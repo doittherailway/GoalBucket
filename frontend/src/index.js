@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (decodedUser.exp < currentTime) {
             // Logout the user and redirect to the login page
             store.dispatch(logout());
-            window.location.href = '/login';
+            window.location.href = '/';
         }
     } else {
         // If this is a first time user, start with an empty store
@@ -55,10 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatch = store.dispatch; 
     //
 });
-
-
-
-
 
 // import React from 'react';
 // import ReactDOM from 'react-dom';

@@ -71,7 +71,7 @@ router.patch('/:id',
         Goal.findById(req.params.id)
             .then(goal => {
 
-                let { title, description, goalCurrentAmount, done } = req.body;
+                let { title, description, goalCurrentAmount, goalAmount, done } = req.body;
                 
                 if (title) {
                     goal.title = title;
@@ -79,11 +79,11 @@ router.patch('/:id',
                 if (description) {
                     goal.description = description;
                 }
-                if (goalCurrentAmount) {
+                if (goalCurrentAmount <= goalAmount) {
                     goal.goalCurrentAmount = goalCurrentAmount;
                 }
-                if (done) {
-                    goal.done = done;
+                if (goalCurrentAmount === goalAmount) {
+                    goal.done = true;
                 }
                 goal.updateDate = Date.now();
                 goal.save()
@@ -121,7 +121,7 @@ router.patch('/cheers',
 router.delete('/cheers',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-
+        console.log(req.body);
         Goal.findById(req.body.goalId)
             .then(
                 goal => {
