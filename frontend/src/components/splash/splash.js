@@ -35,11 +35,9 @@ class Splash extends React.Component {
                     </div>
                     <h1 className="splash-logo">GOAL</h1>
                     <h1 className="splash-logo">BUCKET</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore 
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea 
-                        commodo consequat.</p>
+                    <p>A goal setting site that allows you to set goals, 
+                        make progress on your goals, and cheer on your friends goals. 
+                        You can also show off your trophy case of achieved goals.</p>
                 </div>
             </div>
         );
