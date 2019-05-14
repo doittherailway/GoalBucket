@@ -63,6 +63,48 @@ router.post('/',
         .then(goal => res.json(goal))
         .catch(err => res.status(400).json(err));
     }
-)
+);
+
+router.patch('/cheers',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        Goal.findById(req.body.goalId)
+            .then(
+                goal => {
+                    let cheers = goal.cheers;
+
+                    if (!cheers.includes(req.user.id)) {
+                        cheers.push(req.user.id);
+                    }
+
+                    goal.cheers = cheers;
+
+                    goal.save()
+                        .then(updateGoal => res.json(updateGoal))
+                        .catch(err => res.status(400).json(err));
+        });
+    }
+);
+
+router.delete('/cheers',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        Goal.findById(req.body.goalId)
+            .then(
+                goal => {
+                    let cheers = goal.cheers.filter(el => {
+                        return el.toString() !== req.user.id;
+                    });
+
+                    goal.cheers = cheers;
+
+                    goal.save()
+                        .then(updateGoal => res.json(updateGoal))
+                        .catch(err => res.status(400).json(err));
+                });
+    }
+);
 
 module.exports = router;
