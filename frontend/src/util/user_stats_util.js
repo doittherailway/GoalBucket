@@ -25,13 +25,16 @@ export const userGoalPercentComplete = (goals) => {
 
 export const shortestGoalCompleted = (goals) => {
     let length;
+    let goalTitle;
     for (let i = 0; i < total; i++) {
         if (goals[i].done === true) {
             let currLength = goals[i].finishDate - goals[i].createDate
             if (length === undefined) {
-                length = currLength
+                length = currLength;
+                goalTitle = goals[i].title
             } else if (currLength < length) {
                 length = currLength;
+                goalTitle = goals[i].title;
             }
          }
     }
@@ -39,19 +42,22 @@ export const shortestGoalCompleted = (goals) => {
     if (length === undefined) {
         return "N/A"
     } else {
-        return length;
+        return {length: length, title: goalTitle};
     }
 }
 
-export const longestestGoalCompleted = (goals) => {
+export const longestGoalCompleted = (goals) => {
     let length;
+    let goalTitle;
     for (let i = 0; i < total; i++) {
         if (goals[i].done === true) {
             let currLength = goals[i].finishDate - goals[i].createDate
             if (length === undefined) {
-                length = currLength
+                length = currLength;
+                goalTitle = goals[i].title;
             } else if (currLength > length) {
                 length = currLength;
+                goalTitle = goals[i].title;
             }
         }
     }
@@ -59,6 +65,16 @@ export const longestestGoalCompleted = (goals) => {
     if (length === undefined) {
         return "N/A"
     } else {
-        return length;
+        return { length: length, title: goalTitle };
     }
+}
+
+export const goalStatsMulti = (goals) => {
+    return ({
+        longestGoal: longestGoalCompleted(goals),
+        shortestGoal: shortestGoalCompleted(goals),
+        goalPercent: userGoalPercentComplete(goals),
+        goalCountComplete: userGoalCountComplete(goals),
+        goalCount: userGoalCount(goals)
+    })
 }
