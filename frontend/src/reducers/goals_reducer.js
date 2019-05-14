@@ -4,20 +4,19 @@ import {
     RECEIVE_USER_GOALS
     } from '../actions/goal_actions'; 
 
-const goalsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
+const goalsReducer = (state = {}, action) => {
     Object.freeze(state)
     let newState = Object.assign({}, state);
 
     switch(action.type) {
         case RECEIVE_GOALS: 
-            newState.all = action.goals.data; 
-            return newState; 
+            return action.goals; 
         case RECEIVE_GOAL: 
-            newState.new = action.goal.data; 
+            newState[action.goal.id] = action.goal; 
             return newState; 
-        case RECEIVE_USER_GOALS: 
-            newState.user = action.goals.data; 
-            return newState; 
+        // case RECEIVE_USER_GOALS: 
+        //     newState.user = action.goals.data; 
+        //     return newState; 
         default: 
             return state; 
     }

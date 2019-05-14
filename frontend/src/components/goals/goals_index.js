@@ -12,7 +12,8 @@ class Goal extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchGoals();
+        this.props.fetchGoals()
+        .then(() => this.props.fetchUsers()); 
     }
 
     componentWillReceiveProps(newState) {

@@ -34,7 +34,7 @@ const receiveGoalErrors = errors => ({
 
 export const fetchGoals = () => dispatch => (
     getGoals()
-        .then(goals => dispatch(receiveGoals(goals)))
+        .then(goals => dispatch(receiveGoals(goals.data)))
         .catch(err => console.log(err.response.data))
 
 );
