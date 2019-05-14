@@ -121,7 +121,7 @@ router.patch('/cheers',
 router.delete('/cheers',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-
+        console.log(req.body);
         Goal.findById(req.body.goalId)
             .then(
                 goal => {
