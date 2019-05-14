@@ -10,7 +10,15 @@ const validateLoginInput = require('../../validation/login');
 
 router.get('/', (req, res) => {
     User.find().select('-password -date -__v')
-        .then(users => res.json(users))
+        .then(users => {
+            let usersIndex = {};
+
+            for(let i = 0; i < users.length; i++) {
+                usersIndex[users[i].id] = users[i];
+            }
+
+            res.json(usersIndex);
+        })
         .catch(err =>
             res.status(404).json({ nousersfound: 'No users found' })
         );
