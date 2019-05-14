@@ -1,11 +1,22 @@
 import { connect } from 'react-redux';
 import { fetchGoals, patchGoal } from '../../actions/goal_actions';
 import { fetchUsers } from '../../actions/user_actions'; 
+import { selectUserGoals } from '../../util/goals_selector';
 import GoalsIndex from './goals_index';
 
-const mapStateToProps = (state) => {
+const mapStateToPropsIndex = (state) => {
     return {
-        goals: Object.values(state.entities.goals)
+        goals: Object.values(state.entities.goals),
+        currentUser: state.session.user,
+        filtered: false
+    };
+};
+
+const mapStateToPropsProfile = (state) => {
+    return {
+        goals: selectUserGoals(state, state.session.user.id),
+        currentUser: state.session.user,
+        filtered: true
     };
 };
 
@@ -17,4 +28,8 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GoalsIndex);
+export const GoalsContainer = connect(mapStateToPropsIndex,
+    mapDispatchToProps)(GoalsIndex);
+
+export const GoalsProfileContainer = connect(mapStateToPropsProfile,
+    mapDispatchToProps)(GoalsIndex);

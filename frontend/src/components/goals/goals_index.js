@@ -26,9 +26,9 @@ class Goal extends React.Component {
         } else {
             return (
                 <div className="goals-index">
-                    <h2 className="goal-title">All Goals</h2>
+                    {this.props.filtered ? '' : <h2 className="goal-title">All Goals</h2>}
                     {this.state.goals.map(goal => (
-                        <GoalIndexItem key={goal._id} goal={goal} patchGoal={this.props.patchGoal} />
+                        <GoalIndexItem key={goal._id} goal={goal} patchGoal={this.props.patchGoal} currentUser={this.props.currentUser} />
                     ))}
                 </div>
             );

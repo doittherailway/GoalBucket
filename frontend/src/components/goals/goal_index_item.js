@@ -40,6 +40,14 @@ class GoalIndexItem extends React.Component {
         );
     }
 
+    showUpdate() {
+        if(this.props.goal.user === this.props.currentUser.id ) {
+            return (
+                <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+            );
+        }
+    }
+
     updateGoalAmount(e) {
         e.preventDefault();
         // console.log(this.state.goalCurrentAmount);
@@ -60,7 +68,7 @@ class GoalIndexItem extends React.Component {
         if( percentageVal === 100 ) {
             return (
                 <div id="overlay-image">
-                    <img src="/images/completed-stamp.png" />
+                    <img src="/images/completed-stamp.png" alt="completed-stamp"/>
                 </div>
             );
         }
@@ -89,7 +97,7 @@ class GoalIndexItem extends React.Component {
                         {this.progressBarSpan(percentageCompleted)}
                         {this.progressBarSpanRemaining(percentageRemaining)}
                     </div>
-                    <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+                    {this.showUpdate()}
                     {this.overlayImage(percentageVal)}    
                 </div>
                 
