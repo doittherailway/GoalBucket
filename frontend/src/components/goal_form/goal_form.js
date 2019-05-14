@@ -9,6 +9,7 @@ class GoalForm extends React.Component {
             goalAmount: 1,
             goalType: '',
             endDate: null,
+            finishDate: null,
             timed: false,
         }
         this.handleChange = this.handleChange.bind(this); 

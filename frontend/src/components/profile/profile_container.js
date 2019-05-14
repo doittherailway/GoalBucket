@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
+import { selectUserGoals } from '../../util/goals_selector';
 import Profile from './profile';
 
 const mapStateToProps = (state) => {
-    return {
-        currentUser: state.session.user
-    };
+    let selectedGoals = selectUserGoals(state, state.session.user.id);
+    return ({
+        currentUser: state.session.user,
+        goals: selectedGoals
+    });
 };
 
 const mapDispatchToProps = dispatch => {
