@@ -9,5 +9,5 @@ const receiveUsers = users => ({
 
 export const fetchUsers = () => dispatch => (
     getUsers()
-        .then(users => dispatch(receiveUsers(users)))
+        .then(users => dispatch(receiveUsers(users.data)))
 );

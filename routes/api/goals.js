@@ -11,7 +11,13 @@ const validateGoalInput = require('../../validation/goals');
 // goals index req
 router.get('/', (req, res) => {
     Goal.find()
-        .then(goals => res.json(goals))
+        .then(goals => {
+            let goalsIndex = {}; 
+            for (let i = 0; i < goals.length; i ++) {
+                goalsIndex[goals[i].id] = goals[i]; 
+            }
+            res.json(goalsIndex);
+        })
         .catch(err => 
             res.status(404).json({ nogoalsfound: 'No goals found' })
         );
