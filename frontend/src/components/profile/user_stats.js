@@ -7,11 +7,11 @@ const UserStats = ({ goals }) => {
     return (
         <div>
             <div>
-                Total Goals Created: {goalStats.goalCount}
-                Total Goals Completed: {goalStats.goalCountComplete}
-                Percent of Goals Completed: {goalStats.goalPercent}
-                Shortest Goal Completed: {goalStats.shortestGoal.title}, {goalStats.shortestGoal.length}
-                Longest Goal Completed: {goalStats.longestGoal.title}, {goalStats.longestGoal.length}
+                <p>Total Goals Created: {goalStats.goalCount}</p>
+                <p>Total Goals Completed: {goalStats.goalCountComplete}</p>
+                <p>Percent of Goals Completed: {goalStats.goalPercent}</p>
+                <p>Shortest Goal Completed: { goalStats.shortestGoal.title }, { goalStats.shortestGoal.length }</p >
+                <p>Longest Goal Completed: { goalStats.longestGoal.title }, { goalStats.longestGoal.length }</p >
             </div>
         </div>
     )
