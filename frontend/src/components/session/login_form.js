@@ -24,6 +24,10 @@ class LoginForm extends React.Component {
         this.setState({ errors: nextProps.errors })
     }
 
+    componentWillUnmount() {
+        this.props.clearModal();
+    }
+
     // Handle field updates (called in the render method)
     update(field) {
         return e => this.setState({
@@ -41,7 +45,6 @@ class LoginForm extends React.Component {
         };
 
         this.props.login(user);
-        this.props.clearModal();
     }
 
     renderErrors() {

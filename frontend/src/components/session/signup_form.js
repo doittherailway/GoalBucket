@@ -24,6 +24,10 @@ class SignupForm extends React.Component {
         this.setState({ errors: nextProps.errors })
     }
 
+    componentWillUnmount() {
+        this.props.clearModal();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -39,8 +43,7 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         };
 
-        this.props.signup(user, this.props.history);
-        this.props.clearModal();
+        this.props.signup(user);
     }
 
     renderErrors() {
