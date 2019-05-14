@@ -21,14 +21,27 @@
 
 .goal-form label {
     text-transform: capitalize;
+    display: block;
 }
 
-.goal-form input {
+.goal-input {
     display: block;
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
     min-width: 250px;
+}
+
+.input-amount {
+    min-width: 100px;
+}
+
+.input-amt-btn-minus {
+
+}
+
+.input-amt-btn-plus {
+
 }
 
 .goal-form textarea {

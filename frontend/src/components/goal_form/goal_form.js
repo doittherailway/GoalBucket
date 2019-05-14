@@ -6,7 +6,7 @@ class GoalForm extends React.Component {
         this.state = {
             title: '',
             description: '',
-            goalAmount: 0,
+            goalAmount: 1,
             goalType: '',
             endDate: null,
             timed: false,
@@ -15,10 +15,30 @@ class GoalForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this); 
         this.handleCheck = this.handleCheck.bind(this);
         this.renderErrors = this.renderErrors.bind(this); 
+        this.changeGoalAmount = this.changeGoalAmount.bind(this);
     } 
 
     handleChange(type) {
         return ( e => this.setState( { [type]: e.target.value } ) ) 
+    }
+
+    changeGoalAmount(e, operation) {
+        e.preventDefault();
+        let currGoalAmount = this.state.goalAmount;
+        let newGoalAmount;
+
+        if (operation === "+") {
+            newGoalAmount = currGoalAmount + 1;
+        } else {
+            if (currGoalAmount - 1 > 0) {
+            newGoalAmount = currGoalAmount - 1;
+            } else {
+                newGoalAmount = currGoalAmount;
+            }
+        }
+        this.setState({
+                goalAmount: newGoalAmount
+            })
     }
 
     handleSubmit(e) {
@@ -58,7 +78,7 @@ class GoalForm extends React.Component {
 
                     <div className="input">
                         <label>title</label>
-                        <input type="text" 
+                        <input className="goal-input" type="text" 
                             onChange={this.handleChange('title')}
                             value={this.state.title}/>
                     </div>
@@ -72,21 +92,23 @@ class GoalForm extends React.Component {
 
                     <div className="input">
                         <label>goal amount</label>
-                        <input type="number" 
+                        <button className="input-amt-btn-minus" onClick={(e) => {this.changeGoalAmount(e, '-')}}>-</button>
+                        <input className="input-amount" type="text" 
                             onChange={this.handleChange('goalAmount')}
                             value={this.state.goalAmount}/>
+                        <button className="input-amt-btn-plus" onClick={(e) => { this.changeGoalAmount(e, '+') }}>+</button>
                     </div>
 
                     <div className="input">
                         <label>goal type</label>
-                        <input type="text" 
+                        <input className="goal-input" type="text" 
                             onChange={this.handleChange('goalType')}
                             value={this.state.goalType}/>
                     </div>
 
                     <div className="input">
                         <label>timed
-                            <input type="checkbox"
+                            <input type="checkbox" className="goal-input" 
                                 defaultChecked={this.state.timed}
                                 onChange={this.handleCheck}/>
                         </label>
@@ -94,7 +116,7 @@ class GoalForm extends React.Component {
 
                 <div className="input">
                     <label>end date</label>
-                    <input type="date" 
+                        <input type="date" className="goal-input" 
                         onChange={this.handleChange('endDate')}
                         value={this.state.endDate}/>
                 </div>
