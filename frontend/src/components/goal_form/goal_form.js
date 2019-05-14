@@ -73,12 +73,13 @@ class GoalForm extends React.Component {
     render() {
         return(
             <div className="goal-form-outer-div">
-                <h3>Add a new Goal</h3>
                 <form className="goal-form" onSubmit={this.handleSubmit}>
-
+                    <div className="add-goal-header-box">
+                        <h3>Add a new Goal</h3>
+                    </div>
                     <div className="input">
                         <label>title</label>
-                        <input className="goal-input" type="text" 
+                        <input className="goal-input" type="text" placeholder="Name your goal"
                             onChange={this.handleChange('title')}
                             value={this.state.title}/>
                     </div>
@@ -86,22 +87,26 @@ class GoalForm extends React.Component {
                     <div className="input">
                         <label>description</label>
                         <textarea 
+                            placeholder="Describe your goal"
                             onChange={this.handleChange('description')}
                             value={this.state.description}/>
                     </div>
 
                     <div className="input">
+                        
                         <label>goal amount</label>
-                        <button className="input-amt-btn-minus" onClick={(e) => {this.changeGoalAmount(e, '-')}}>-</button>
-                        <input className="input-amount" type="text" 
-                            onChange={this.handleChange('goalAmount')}
-                            value={this.state.goalAmount}/>
-                        <button className="input-amt-btn-plus" onClick={(e) => { this.changeGoalAmount(e, '+') }}>+</button>
+                        <div className="input-amount-box">
+                            <button className="input-amt-btn-minus" onClick={(e) => {this.changeGoalAmount(e, '-')}}>-</button>
+                            <input className="input-amount" type="text" 
+                                onChange={this.handleChange('goalAmount')}
+                                value={this.state.goalAmount}/>
+                            <button className="input-amt-btn-plus" onClick={(e) => { this.changeGoalAmount(e, '+') }}>+</button>
+                        </div>
                     </div>
 
                     <div className="input">
                         <label>goal type</label>
-                        <input className="goal-input" type="text" 
+                        <input className="goal-input" type="text" placeholder="eg. hikes"
                             onChange={this.handleChange('goalType')}
                             value={this.state.goalType}/>
                     </div>
@@ -120,9 +125,9 @@ class GoalForm extends React.Component {
                         onChange={this.handleChange('endDate')}
                         value={this.state.endDate}/>
                 </div>
-                
-                <button>submit</button>
-
+                <div className="goal-submit-div">
+                    <button className="goal-submit-btn">submit</button>
+                </div>
                 {this.renderErrors()}
             </form>
         </div>
