@@ -26,7 +26,7 @@ export const userGoalPercentComplete = (goals) => {
 export const shortestGoalCompleted = (goals) => {
     let length;
     let goalTitle;
-    for (let i = 0; i < total; i++) {
+    for (let i = 0; i < goals.length; i++) {
         if (goals[i].done === true) {
             let currLength = goals[i].finishDate - goals[i].createDate
             if (length === undefined) {
@@ -49,7 +49,7 @@ export const shortestGoalCompleted = (goals) => {
 export const longestGoalCompleted = (goals) => {
     let length;
     let goalTitle;
-    for (let i = 0; i < total; i++) {
+    for (let i = 0; i < goals.length; i++) {
         if (goals[i].done === true) {
             let currLength = goals[i].finishDate - goals[i].createDate
             if (length === undefined) {
