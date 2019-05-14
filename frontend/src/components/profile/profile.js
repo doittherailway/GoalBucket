@@ -1,4 +1,5 @@
 import React from 'react';
+import { GoalsProfileContainer } from '../goals/goals_container';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -35,6 +36,9 @@ class Profile extends React.Component {
                 <div className="user-trophies">
                     [trophies]
                 </div>
+            </div>
+            <div className="user-bottom-profile">
+                <GoalsProfileContainer />
             </div>
         </div>
         );
