@@ -68,36 +68,27 @@ router.post('/',
 // goal update req
 router.patch('/:id',  
     (req, res) => {
-        // const { errors, isValid } = validateGoalInput(req.body);
-        // if (!isValid) {
-        //     return res.status(422).json(errors);
-        // }
-
         Goal.findById(req.params.id)
-            .then(
-                goal => {
-                    let { title, description, goalCurrentAmount, done} = req.body; 
-                    if (title) {
-                        goal.title = title; 
-                    }
-                    // if (description) {
-                    //     goal.description = description; 
-                    // }
-                    // if (goalCurrentAmount) {
-                    //     goal.goalCurrentAmount = goalCurrentAmount; 
-                    // }
-                    // if (done) {
-                    //     goal.done = done; 
-                    // }
-                    // goal.updateDate = Date.now; 
-                    debugger; 
-
-                    goal.save()
-                        .then(updatedGoal => res.json(updatedGoal))
-                        .catch(err => res.status(418).json(err)); 
-            
+            .then(goal => {
+                let { title, description, goalCurrentAmount, done} = req.body; 
+                if (title) {
+                    goal.title = title; 
                 }
-            ); 
+                if (description) {
+                    goal.description = description; 
+                }
+                if (goalCurrentAmount) {
+                    goal.goalCurrentAmount = goalCurrentAmount; 
+                }
+                if (done) {
+                    goal.done = done; 
+                }
+                goal.updateDate = Date.now(); 
+                goal.save()
+                    .then(updatedGoal => res.json(updatedGoal))
+                    .catch(err => res.status(418).json(err)); 
+                }
+            );
     }
 ); 
 
