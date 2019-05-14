@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import GoalsContainer from '../goals/goals_container';
+import { GoalsContainer } from '../goals/goals_container';
 import ProfileContainer from '../profile/profile_container';
 import CreateGoalFormContainer from '../goal_form/goal_form_container'; 
 import AsideContainer from '../aside/aside-container';
