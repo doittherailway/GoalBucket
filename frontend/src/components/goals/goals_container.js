@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchGoals } from '../../actions/goal_actions';
+import { fetchGoals, patchGoal } from '../../actions/goal_actions';
 import GoalsIndex from './goals_index';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchGoals: () => dispatch(fetchGoals())
+        fetchGoals: () => dispatch(fetchGoals()),
+        patchGoal: (goal) => dispatch(patchGoal(goal))
     };
 };
 
