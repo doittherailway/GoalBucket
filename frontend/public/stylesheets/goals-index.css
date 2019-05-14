@@ -13,7 +13,7 @@
     border: 2px solid #738290;
     background-color: white;
     border-radius: 2px;
-    width: 60%;
+    width: 90%;
 }
 
 .goal-index-item h3 {
@@ -153,4 +153,19 @@
         inset 0 -2px 6px rgba(0,0,0,0.4);
     position: relative;
     overflow: hidden;
+}
+
+
+#overlay-image {
+  position: absolute;
+  top: -85px;
+  left: 40%;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+#overlay-image img {
+    /* width: 100px; */
+    height: 90px;
 }

@@ -22,7 +22,6 @@ class GoalIndexItem extends React.Component {
                 <span className="progress-bar-completed-done" style={{ width: percentageCompleted }}></span>
             );
         }
-        
         return (
             <span className="progress-bar-completed" style={{ width: percentageCompleted }}></span>
         );
@@ -57,12 +56,28 @@ class GoalIndexItem extends React.Component {
         }
     }
 
+    overlayImage(percentageVal) {
+        if( percentageVal === 100 ) {
+            return (
+                <div id="overlay-image">
+                    <img src="/images/completed-stamp.png" />
+                </div>
+            );
+        }
+
+        return (
+            <div id="overlay-image">
+            </div>
+        );
+
+    }
+
     render() {
         
         let percentageVal = Math.floor(((this.state.goalCurrentAmount)/this.props.goal.goalAmount)*100);
         let percentageCompleted = percentageVal + '%';
         let percentageRemaining = (100 - percentageVal) + '%';
-        
+
         return (
             <div className="goal-index-item">
                 <h3>Title: {this.props.goal.title}</h3>
@@ -75,8 +90,9 @@ class GoalIndexItem extends React.Component {
                         {this.progressBarSpanRemaining(percentageRemaining)}
                     </div>
                     <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+                    {this.overlayImage(percentageVal)}    
                 </div>
-
+                
                 {/* 
                 <h6>Goal amount: {this.props.goal.goalAmount}</h6>
                 <h6>Goal current amount: {this.props.goal.goalCurrentAmount}</h6>
