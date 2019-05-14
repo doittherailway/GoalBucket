@@ -16,7 +16,28 @@ class Profile extends React.Component {
     }
 
     render() {
-        return <div></div>;
+        return (
+        <div>
+            <div className="user-top-profile">
+                <div className="user-top-box">
+                    <div className="user-top-username">
+                        <div className="user-profile-icon">
+                            <img className="user-icon" src="/images/user_icon_pug.png" alt="user icon" />
+                        </div>
+                        <div className="user-profile-username">
+                            Username
+                        </div>
+                    </div>
+                    <div className="user-top-stats">
+                        [stats]
+                    </div>   
+                </div>
+                <div className="user-trophies">
+                    [trophies]
+                </div>
+            </div>
+        </div>
+        );
     }
 }
 

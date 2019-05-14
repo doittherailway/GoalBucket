@@ -1,0 +1,82 @@
+
+.user-top-profile {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    /* border: 1px solid grey; */
+}
+
+.user-top-box {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.user-top-username {
+    display: flex;
+    background-color: white;
+    height: 80px;
+    width: 45%;
+    /* border: 1px solid grey; */
+    /* margin: 10px; */
+    padding: 10px;
+    justify-content: center;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+}
+
+.user-profile-icon {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    border-radius: 40px;
+    width: 60px;
+    height: 60px;
+}
+
+.user-profile-username {
+    font-size: 28px;
+    /* font-size: -0.5vw; */
+    color: #515c66;
+    align-self: center;
+    font-weight: 100;
+    word-wrap: break-word;
+    /* margin-left: 5px; */
+    width: 65%;
+}
+
+.user-top-stats {
+    display: inline-block;
+    background-color: white;
+    height: 60px;
+    width: 45%;
+    color: #515c66;
+    font-weight: 100;
+    padding: 20px;
+    /* border: 1px solid grey; */
+    margin-left: 10px;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+}
+
+.user-trophies {
+    display: flex;
+    background-color: white;
+    align-self: center;
+    height: 100px;
+    width: 100%;
+    color: #515c66;
+    font-weight: 100;
+    padding: 20px;
+    box-sizing: border-box;
+    /* border: 1px solid grey; */
+    margin: 10px;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);  
+}
