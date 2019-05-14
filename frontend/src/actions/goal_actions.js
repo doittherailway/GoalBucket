@@ -54,7 +54,7 @@ export const fetchUserGoals = () => dispatch => (
 
 export const patchGoal = goal => dispatch => (
     updateGoal(goal)
-        .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
+        .then(updatedGoal => dispatch(receiveGoal(updatedGoal.data)))
         .catch(err => console.log(err.response.data))
 );
 

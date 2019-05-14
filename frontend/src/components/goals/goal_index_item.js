@@ -45,6 +45,11 @@ class GoalIndexItem extends React.Component {
             return (
                 <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
             );
+        } else {
+            // show cheers
+            return (
+                <i className="fas fa-child" onClick={(e) => { this.addCheer() }}></i>
+            );
         }
     }
 
@@ -78,6 +83,10 @@ class GoalIndexItem extends React.Component {
             </div>
         );
 
+    }
+
+    addCheer() {
+        // this.props.addCheer()
     }
 
     render() {
