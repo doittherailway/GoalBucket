@@ -111,48 +111,84 @@ router.get('/current',
     });
 });
 
-router.patch('/follow/:user_id', 
-    passport.authenticate('jwt', {session: false}),
+router.patch('/follow/:user_id',
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
 
-        User.findById(req.user.id)
-            .then( currUser => {
+        let promise1 = User.findById(req.user.id).exec(); 
 
+        promise1 = promise1.then(
+            currUser => {
                 if (!currUser.following.includes(req.params.user_id)) {
-                    currUser.following.push(req.params.user_id); 
+                currUser.following.push(req.params.user_id);
                 }
-                let data = []; 
 
-                User.findById(req.params.user_id)
-                    .then( followedUser => {
-                        if (!followedUser.followers.includes(req.user.id)) {
-                            followedUser.followers.push(req.user.id);
-                        }
-                        followedUser.save()
-                            .then(updatedfollowing => data.push(updatedfollowing))
-                            .catch(err => res.status(422).json(err)); 
-                    })
-                    .then(() => {
-                        return currUser.save()
-                            .then(updatedfollower => {
-                                data.push(updatedfollower);
-                                let dataIndex = {}; 
+                return currUser.save()
+                    .then( updatedCurrUser => updatedCurrUser );
+            }
+        );
 
-                                for (let i = 0; i < data.length; i++) {
-                                    dataIndex[data[i].id] = data[i]; 
-                                }
-                                return res.json(dataIndex); 
-                                })
-                            .catch(err => res.status(422).json(err));  });   
-            });     
-    }
+        let promise2 = User.findById(req.params.user_id).exec();
+
+        promise2 = promise2.then(
+            followedUser => {
+                if (!followedUser.followers.includes(req.user.id)) {
+                    followedUser.followers.push(req.user.id);
+                }
+
+                return followedUser.save()
+                    .then( updatedfollowedUser => updatedfollowedUser); 
+            }
+        );
+
+        return Promise.all([promise1, promise2])
+            .then( val => {
+                let data = {};
+                for (let i = 0; i < val.length; i++) {
+                    data[val[i].id] = val[i];
+                }
+                return res.json(data); 
+            });
+    }   
 );
 
 router.delete('/follow/:user_id',
-    passport.authenticate('jwt', {session: false}),
+    passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        // need work here. 
-    } 
+
+        let promise1 = User.findById(req.user.id).exec();
+
+        promise1 = promise1.then(
+            currUser => {
+                currUser.following = currUser.following.filter(val =>
+                    (String(val) !== String(req.params.user_id)));
+
+                return currUser.save()
+                    .then(updatedCurrUser => updatedCurrUser);
+            }
+        );
+
+        let promise2 = User.findById(req.params.user_id).exec();
+
+        promise2 = promise2.then(
+            followedUser => {
+                followedUser.followers = followedUser.followers.filter( val =>
+                    (String(val) !== String(req.user.id)));
+
+                return followedUser.save()
+                    .then(updatedfollowedUser => updatedfollowedUser);
+            }
+        );
+
+        return Promise.all([promise1, promise2])
+            .then(val => {
+                let data = {};
+                for (let i = 0; i < val.length; i++) {
+                    data[val[i].id] = val[i];
+                }
+                return res.json(data);
+            });
+    }
 );
 
 module.exports = router;
