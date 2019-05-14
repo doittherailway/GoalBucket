@@ -90,6 +90,7 @@ router.patch('/:id',
                 }
                 if (goalCurrentAmount === goalAmount) {
                     goal.done = true;
+                    goal.finishDate = Date.now();
                 }
                 goal.updateDate = Date.now();
                 goal.save()
