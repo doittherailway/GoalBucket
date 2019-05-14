@@ -16,6 +16,7 @@ class GoalForm extends React.Component {
         this.handleCheck = this.handleCheck.bind(this);
         this.renderErrors = this.renderErrors.bind(this); 
         this.changeGoalAmount = this.changeGoalAmount.bind(this);
+        this.endDateToggle = this.endDateToggle.bind(this);
     } 
 
     handleChange(type) {
@@ -60,6 +61,21 @@ class GoalForm extends React.Component {
         this.setState( { timed: !this.state.timed } ); 
     }
 
+    endDateToggle(){
+        if (this.state.timed === true) {
+            return(
+                <div className="input">
+                    <label>end date</label>
+                    <input type="date" className="goal-input"
+                        onChange={this.handleChange('endDate')}
+                        value={this.state.endDate} />
+                </div>
+            );
+        } else {
+            return null
+        }
+    }
+
     renderErrors() { 
         if ( this.props.errors.length !== 0 ) {
             return (
@@ -77,14 +93,14 @@ class GoalForm extends React.Component {
                     <div className="add-goal-header-box">
                         <h3>Add a new Goal</h3>
                     </div>
-                    <div className="input">
+                    <div className="input-div">
                         <label>title</label>
                         <input className="goal-input" type="text" placeholder="Name your goal"
                             onChange={this.handleChange('title')}
                             value={this.state.title}/>
                     </div>
 
-                    <div className="input">
+                    <div className="input-div">
                         <label>description</label>
                         <textarea 
                             placeholder="Describe your goal"
@@ -92,7 +108,7 @@ class GoalForm extends React.Component {
                             value={this.state.description}/>
                     </div>
 
-                    <div className="input">
+                    <div className="input-amt">
                         
                         <label>goal amount</label>
                         <div className="input-amount-box">
@@ -104,27 +120,22 @@ class GoalForm extends React.Component {
                         </div>
                     </div>
 
-                    <div className="input">
+                    <div className="input-div">
                         <label>goal type</label>
                         <input className="goal-input" type="text" placeholder="eg. hikes"
                             onChange={this.handleChange('goalType')}
                             value={this.state.goalType}/>
                     </div>
 
-                    <div className="input">
-                        <label>timed
-                            <input type="checkbox" className="goal-input" 
+                    <div className="input-div">
+                        <label>timed <p className="timed-optional-txt">(Optional)</p>
+                            <input type="checkbox" className="goal-input-check" 
                                 defaultChecked={this.state.timed}
                                 onChange={this.handleCheck}/>
                         </label>
                     </div>
+                    {this.endDateToggle()}
 
-                <div className="input">
-                    <label>end date</label>
-                        <input type="date" className="goal-input" 
-                        onChange={this.handleChange('endDate')}
-                        value={this.state.endDate}/>
-                </div>
                 <div className="goal-submit-div">
                     <button className="goal-submit-btn">submit</button>
                 </div>

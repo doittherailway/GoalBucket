@@ -15,6 +15,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 22px;
+    color: #515c66;
 }
 
 .goal-form {
@@ -31,7 +32,13 @@
 .goal-form label {
     text-transform: capitalize;
     display: block;
+    color: #515c66;
 }
+/* 
+.input-amt {
+    display: flex;
+} */
+
 
 .goal-input {
     display: block;
@@ -39,6 +46,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     min-width: 250px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .input-amount-box {
@@ -48,6 +56,13 @@
     margin-bottom: 10px;
 }
 
+.input-amt {
+        display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
 .input-amount {
     display: inline-block;
     width: 30px;
@@ -55,6 +70,7 @@
     margin-bottom: 10px;
     min-height: 24px;
     text-align: center;
+
 }
 
 .input-amt-btn-minus {
@@ -93,7 +109,7 @@
     outline: none;
 }
 
-..input-amt-btn-minus:focus {
+.input-amt-btn-minus:focus {
     outline: none;
 }
 
@@ -106,6 +122,24 @@
     max-width: 250px;
     min-height: 50px;
     max-height: 200px;
+}
+
+.timed-optional-txt {
+    display: inline-block;
+    color: grey;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.goal-input-check {
+    display: inline-block;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    min-width: 250px;
+    font-family: 'Roboto', sans-serif;
+    height: 13px;
+    margin-left: 10px;
 }
 
 .goal-submit-div {
