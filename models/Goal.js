@@ -24,6 +24,7 @@ const GoalSchema = new Schema({
 
     updateDate: {
         type: Date,
+        default: Date.now
     },
 
     finishDate: {
