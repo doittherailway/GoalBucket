@@ -5,7 +5,8 @@ import GoalsIndex from './goals_index';
 
 const mapStateToProps = (state) => {
     return {
-        goals: Object.values(state.entities.goals)
+        goals: Object.values(state.entities.goals),
+        currentUser: state.session.user
     };
 };
 
