@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoalsProfileContainer } from '../goals/goals_container';
+import UserStats from './user_stats';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Profile extends React.Component {
                         </div>
                     </div>
                     <div className="user-top-stats">
-                        [stats]
+                        <UserStats goals={this.props.goals} />
                     </div>   
                 </div>
                 <div className="user-trophies">
