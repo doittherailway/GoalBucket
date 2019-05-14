@@ -63,6 +63,77 @@ router.post('/',
         .then(goal => res.json(goal))
         .catch(err => res.status(400).json(err));
     }
-)
+);
+
+// goal update req
+router.patch('/:id',
+    (req, res) => {
+        Goal.findById(req.params.id)
+            .then(goal => {
+                let { title, description, goalCurrentAmount, done } = req.body;
+                if (title) {
+                    goal.title = title;
+                }
+                if (description) {
+                    goal.description = description;
+                }
+                if (goalCurrentAmount) {
+                    goal.goalCurrentAmount = goalCurrentAmount;
+                }
+                if (done) {
+                    goal.done = done;
+                }
+                goal.updateDate = Date.now();
+                goal.save()
+                    .then(updatedGoal => res.json(updatedGoal))
+                    .catch(err => res.status(418).json(err));
+            }
+            );
+    }
+);
+
+// add cheer to goal
+router.patch('/cheers',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        Goal.findById(req.body.goalId)
+            .then(
+                goal => {
+                    let cheers = goal.cheers;
+
+                    if (!cheers.includes(req.user.id)) {
+                        cheers.push(req.user.id);
+                    }
+
+                    goal.cheers = cheers;
+
+                    goal.save()
+                        .then(updateGoal => res.json(updateGoal))
+                        .catch(err => res.status(400).json(err));
+        });
+    }
+);
+
+// remove cheer from goal
+router.delete('/cheers',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        Goal.findById(req.body.goalId)
+            .then(
+                goal => {
+                    let cheers = goal.cheers.filter(el => {
+                        return el.toString() !== req.user.id;
+                    });
+
+                    goal.cheers = cheers;
+
+                    goal.save()
+                        .then(updateGoal => res.json(updateGoal))
+                        .catch(err => res.status(400).json(err));
+                });
+    }
+);
 
 module.exports = router;
