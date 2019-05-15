@@ -5,11 +5,12 @@ class GoalIndexItem extends React.Component {
     constructor(props) {
         super(props);
         let currAmt = this.props.goal.goalCurrentAmount;
-        if( currAmt === 0 ) {
-            currAmt = currAmt + 1;
-        }
+        // if( currAmt === 0 ) {
+        //     currAmt = currAmt + 1;
+        // }
         this.state = {
-            goalCurrentAmount: currAmt
+            goalCurrentAmount: currAmt,
+            cheerColor: "rgb(63, 125, 240)"
         }
         this.updateGoalAmount = this.updateGoalAmount.bind(this);
         this.progressBarSpan = this.progressBarSpan.bind(this);
@@ -43,12 +44,18 @@ class GoalIndexItem extends React.Component {
     showUpdate() {
         if(this.props.goal.user === this.props.currentUser.id ) {
             return (
-                <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+                <span className="cheer-span">
+                    <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+                    <span>update</span>
+                </span>
             );
         } else {
             // show cheers
             return (
-                <i className="fas fa-child" ref="cheer" onClick={(e) => { this.addCheer() }}></i>
+                <span className="cheer-span">
+                    <i className="fas fa-child" ref="cheer" onClick={(e) => { this.addCheer() }}></i>
+                    <span>{this.props.goal.cheers.length} cheers</span>
+                </span>
             );
         }
     }
@@ -88,26 +95,21 @@ class GoalIndexItem extends React.Component {
     componentDidUpdate() {
         let cheers = this.props.goal.cheers;
         for (let i = 0; i < cheers.length; i++) {
-            // console.log(cheers[i]);
             // console.log(this.props.currentUser.id);
             if (cheers[i] === this.props.currentUser.id) {
-                // console.log(this.refs.cheer);
-                this.refs.cheer.style.color = "blue";
+                this.refs.cheer.style.color = this.state.cheerColor;
             }
         }
     }
 
     addCheer() {
-        // this.props.addCheer()
-        // console.log(this.props.goal._id);
-        // console.log(this.refs.cheer.style.color);
-        if (this.refs.cheer.style.color === "blue" ) {
+        if (this.refs.cheer.style.color === this.state.cheerColor ) {
             this.props.deleteCheer(this.props.goal._id)
                 .then((cheer) => this.refs.cheer.style.color = "");
         }
         else {
             this.props.createCheer(this.props.goal._id)
-                .then((cheer) => this.refs.cheer.style.color = "blue");
+                .then((cheer) => this.refs.cheer.style.color = this.state.cheerColor);
         }
     }
 
