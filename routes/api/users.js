@@ -51,7 +51,23 @@ router.post('/register', (req, res) => {
                         if (err) throw err;
                         newUser.password = hash;
                         newUser.save()
-                            .then(user => res.json(user))
+                            .then(user => {
+
+                            const payload = { id: user.id, name: user.name };
+
+                            jwt.sign(
+                                payload,
+                                keys.secretOrKey,
+                                // Tell the key to expire in 6 hours
+                                { expiresIn: 21600 },
+                                (err, token) => {
+                                    res.json({
+                                        success: true,
+                                        token: 'Bearer ' + token
+                                });
+                            }); 
+                                
+                            })
                             .catch(err => console.log(err));
                     });
                 });
