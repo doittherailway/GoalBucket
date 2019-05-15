@@ -6,27 +6,38 @@ class Trophies extends React.Component {
         super(props); 
         this.state = {
             startIndex: 0,
-            endIndex: 4, 
-            total: this.props.goals.length
+            endIndex: this.lastOne(), 
+            total: this.doneGoals().length
         }
         this.renderTrophies = this.renderTrophies.bind(this); 
         this.scrollLeft = this.scrollLeft.bind(this); 
         this.scrollRight = this.scrollRight.bind(this); 
         this.doneGoals = this.doneGoals.bind(this); 
+        this.lastOne = this.lastOne.bind(this); 
     }
 
-    renderTrophies() {
+    lastOne() {
+        let done = this.doneGoals();
+        return done.length >= 4 ? 4 : done.length;
+    }
+
+    renderTrophies(done) {
         let { startIndex, endIndex } = this.state;
         let trophies = []; 
-        let done = this.doneGoals(); 
         for(let i = startIndex; i < endIndex; i++) {
-            trophies.push(<TrophyItem key={i} goal={this.props.goals[i]}/>)
+            trophies.push(<TrophyItem key={i} goal={done[i]}/>)
         }
         return trophies; 
     }
 
     doneGoals() {
-        return this.props.goals.filter( goal =>  (goal.done === true) );  
+        let done = []; 
+        this.props.goals.forEach( goal => {
+            if (goal.done === true) {
+                done.push(goal); 
+            }
+        });
+        return done; 
     }
 
     scrollLeft() {
@@ -52,12 +63,14 @@ class Trophies extends React.Component {
     }
 
     render() { 
+        let goals = this.doneGoals(); 
+
         return(
             <div className="trophy-cabinet">
                 <i class="fas fa-chevron-circle-left"
                     onClick={this.scrollLeft}></i>
                 <ul>
-                    { this.renderTrophies() }
+                    { this.renderTrophies(goals) }
                 </ul>
                 <i class="fas fa-chevron-circle-right"
                     onClick={this.scrollRight}></i>

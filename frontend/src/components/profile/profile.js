@@ -28,7 +28,7 @@ class Profile extends React.Component {
                             <img className="user-icon" src="/images/user_icon_pug.png" alt="user icon" />
                         </div>
                         <div className="user-profile-username">
-                            username : -} 
+                            {this.props.user.username}
                         </div>
                     </div>
                     <div className="user-top-stats">
