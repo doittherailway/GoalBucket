@@ -48,7 +48,7 @@ class GoalIndexItem extends React.Component {
         } else {
             // show cheers
             return (
-                <i className="fas fa-child" onClick={(e) => { this.addCheer() }}></i>
+                <i className="fas fa-child" ref="cheer" onClick={(e) => { this.addCheer() }}></i>
             );
         }
     }
@@ -85,8 +85,30 @@ class GoalIndexItem extends React.Component {
 
     }
 
+    componentDidUpdate() {
+        let cheers = this.props.goal.cheers;
+        for (let i = 0; i < cheers.length; i++) {
+            // console.log(cheers[i]);
+            // console.log(this.props.currentUser.id);
+            if (cheers[i] === this.props.currentUser.id) {
+                // console.log(this.refs.cheer);
+                this.refs.cheer.style.color = "blue";
+            }
+        }
+    }
+
     addCheer() {
         // this.props.addCheer()
+        // console.log(this.props.goal._id);
+        // console.log(this.refs.cheer.style.color);
+        if (this.refs.cheer.style.color === "blue" ) {
+            this.props.deleteCheer(this.props.goal._id)
+                .then((cheer) => this.refs.cheer.style.color = "");
+        }
+        else {
+            this.props.createCheer(this.props.goal._id)
+                .then((cheer) => this.refs.cheer.style.color = "blue");
+        }
     }
 
     render() {
@@ -107,7 +129,8 @@ class GoalIndexItem extends React.Component {
                         {this.progressBarSpanRemaining(percentageRemaining)}
                     </div>
                     {this.showUpdate()}
-                    {this.overlayImage(percentageVal)}    
+                    {this.overlayImage(percentageVal)}
+                    {/* {this.updateActualCheer()}     */}
                 </div>
                 
                 {/* 

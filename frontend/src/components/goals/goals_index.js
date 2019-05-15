@@ -29,7 +29,12 @@ class Goal extends React.Component {
                 <div className="goals-index">
                     {this.props.filtered ? '' : <h2 className="goal-title">All Goals</h2>}
                     {this.state.goals.map(goal => (
-                        <GoalIndexItem key={goal._id} goal={goal} patchGoal={this.props.patchGoal} currentUser={this.props.currentUser} />
+                        <GoalIndexItem key={goal._id} 
+                            goal={goal} 
+                            patchGoal={this.props.patchGoal} 
+                            createCheer={this.props.createCheer} 
+                            deleteCheer={this.props.deleteCheer}
+                            currentUser={this.props.currentUser} />
                     ))}
                 </div>
             );
