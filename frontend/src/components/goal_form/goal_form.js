@@ -46,15 +46,24 @@ class GoalForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         let goal = this.state; 
+        // this.props.createGoal(goal).then(() => {
+        //     this.props.switchPane('profile');
+        // }); 
+
         this.props.createGoal(goal).then(() => {
-            this.props.switchPane('profile');
+            if (this.props.errors.length === 0) {
+                this.props.switchPane('profile');
+            } else {
+                return null;
+            }
         });
+
         this.setState({
             title: '',
             description: '',
             goalAmount: 0,
             goalType: '',
-            endDate: Date.now,
+            endDate: Date.now,  
             done: false,
             timed: false,
         });
@@ -83,7 +92,8 @@ class GoalForm extends React.Component {
         if ( this.props.errors.length !== 0 ) {
             return (
                 <ul>
-                    {this.props.errors.map((err) => <li>{err}</li>)}
+                    {this.props.errors.map((err, idx) => 
+                        <li key={idx}>{err}</li>)}
                 </ul>
             );
         }

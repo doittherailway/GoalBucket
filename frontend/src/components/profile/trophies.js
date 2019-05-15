@@ -67,12 +67,12 @@ class Trophies extends React.Component {
 
         return(
             <div className="trophy-cabinet">
-                <i class="fas fa-chevron-circle-left"
+                <i className="fas fa-chevron-circle-left"
                     onClick={this.scrollLeft}></i>
                 <ul>
                     { this.renderTrophies(goals) }
                 </ul>
-                <i class="fas fa-chevron-circle-right"
+                <i className="fas fa-chevron-circle-right"
                     onClick={this.scrollRight}></i>
             </div>
         );
