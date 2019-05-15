@@ -66,6 +66,6 @@ Technical Challenges:
 * Search Goal tags/categories
  
 ### Wireframes
-![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Splash.png "Splash")
-![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Feed.png "Feed")
-![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Profile.png "Profile")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Splash_live.png "Splash")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Feed_live.png "Feed")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Profile_live.png "Profile")
