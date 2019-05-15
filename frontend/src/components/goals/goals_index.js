@@ -34,7 +34,9 @@ class Goal extends React.Component {
                             patchGoal={this.props.patchGoal} 
                             createCheer={this.props.createCheer} 
                             deleteCheer={this.props.deleteCheer}
-                            currentUser={this.props.currentUser} />
+                            currentUser={this.props.currentUser}
+                            users={this.props.users} 
+                            filtered={this.props.filtered} />
                     ))}
                 </div>
             );
