@@ -6,12 +6,23 @@ const UserStats = ({ goals }) => {
 
     return (
         <div>
-            <div>
-                <p>Total Goals Created: {goalStats.goalCount}</p>
-                <p>Total Goals Completed: {goalStats.goalCountComplete}</p>
-                <p>Percent of Goals Completed: {goalStats.goalPercent}</p>
-                <p>Shortest Goal Completed: { goalStats.shortestGoal.title }, { goalStats.shortestGoal.length }</p >
-                <p>Longest Goal Completed: { goalStats.longestGoal.title }, { goalStats.longestGoal.length }</p >
+            <div className="stats-div">
+                <h3> Goal Stats</h3>
+                <div className="stats-line">
+                    <p className="stats-text">Total Goals Created: </p><p className="stats-number">{goalStats.goalCount}</p>
+                </div>
+                <div className="stats-line">
+                    <p className="stats-text">Total Goals Completed: </p><p className="stats-number">{goalStats.goalCountComplete}</p>
+                </div>
+                <div className="stats-line">
+                    <p className="stats-text">Percent Completed: </p><p className="stats-number">{goalStats.goalPercent}%</p>
+                </div>
+                <div className="stats-line">
+                    <p className="stats-text">Shortest Completed: </p><p className="stats-number">{goalStats.shortestGoal.title}, {goalStats.shortestGoal.length} days</p >
+                </div>
+                <div className="stats-line">
+                    <p className="stats-text">Longest Completed: </p><p className="stats-number">{goalStats.longestGoal.title}, {goalStats.longestGoal.length} days</p >
+                </div>
             </div>
         </div>
     )
