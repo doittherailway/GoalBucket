@@ -5,11 +5,12 @@ class GoalIndexItem extends React.Component {
     constructor(props) {
         super(props);
         let currAmt = this.props.goal.goalCurrentAmount;
-        if( currAmt === 0 ) {
-            currAmt = currAmt + 1;
-        }
+        // if( currAmt === 0 ) {
+        //     currAmt = currAmt + 1;
+        // }
         this.state = {
-            goalCurrentAmount: currAmt
+            goalCurrentAmount: currAmt,
+            cheerColor: "rgb(63, 125, 240)"
         }
         this.updateGoalAmount = this.updateGoalAmount.bind(this);
         this.progressBarSpan = this.progressBarSpan.bind(this);
@@ -43,12 +44,18 @@ class GoalIndexItem extends React.Component {
     showUpdate() {
         if(this.props.goal.user === this.props.currentUser.id ) {
             return (
-                <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+                <span className="cheer-span">
+                    <button className="plus-button" onClick={(e) => { this.updateGoalAmount(e) }}>+</button>
+                    <span>update</span>
+                </span>
             );
         } else {
             // show cheers
             return (
-                <i className="fas fa-child" onClick={(e) => { this.addCheer() }}></i>
+                <span className="cheer-span">
+                    <i className="fas fa-child" ref="cheer" onClick={(e) => { this.addCheer() }}></i>
+                    <span>{this.props.goal.cheers.length} cheers</span>
+                </span>
             );
         }
     }
@@ -85,8 +92,42 @@ class GoalIndexItem extends React.Component {
 
     }
 
+    componentDidUpdate() {
+        let cheers = this.props.goal.cheers;
+        for (let i = 0; i < cheers.length; i++) {
+            // console.log(this.props.currentUser.id);
+            if (cheers[i] === this.props.currentUser.id) {
+                this.refs.cheer.style.color = this.state.cheerColor;
+            }
+        }
+    }
+
     addCheer() {
-        // this.props.addCheer()
+        if (this.refs.cheer.style.color === this.state.cheerColor ) {
+            this.props.deleteCheer(this.props.goal._id)
+                .then((cheer) => this.refs.cheer.style.color = "");
+        }
+        else {
+            this.props.createCheer(this.props.goal._id)
+                .then((cheer) => this.refs.cheer.style.color = this.state.cheerColor);
+        }
+    }
+
+    getUsername() {
+        let usrname = "";
+
+        console.log(this.props.filtered);
+        if (!this.props.filtered) {
+            for(let i=0; i<this.props.users.length; i++) {
+                if( this.props.users[i]._id === this.props.goal.user) {
+                    usrname = this.props.users[i].username;
+                }
+            }
+        
+            return(
+                <h6>Username: {usrname}</h6>
+            );
+        }
     }
 
     render() {
@@ -98,7 +139,7 @@ class GoalIndexItem extends React.Component {
         return (
             <div className="goal-index-item">
                 <h3>Title: {this.props.goal.title}</h3>
-                
+                {this.getUsername()}
                 <h6>Description: {this.props.goal.description}</h6>
 
                 <div className="progress-info">
@@ -107,7 +148,8 @@ class GoalIndexItem extends React.Component {
                         {this.progressBarSpanRemaining(percentageRemaining)}
                     </div>
                     {this.showUpdate()}
-                    {this.overlayImage(percentageVal)}    
+                    {this.overlayImage(percentageVal)}
+                    {/* {this.updateActualCheer()}     */}
                 </div>
                 
                 {/* 

@@ -1,0 +1,32 @@
+
+.stats-div {
+    display: flex;
+    flex-direction: column;
+    color: #515c66;
+}
+
+.stats-div h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    border-bottom: 1px solid #515c66;
+}
+
+.stats-line {
+    display: block;
+}
+
+.stats-text {
+    display: inline-block;
+    font-size: 14px;
+    width: 40%;
+    padding-left: 5px;
+}
+
+.stats-number {
+    display: inline-block;
+    font-size: 14px;
+    padding-left: 5px;
+}

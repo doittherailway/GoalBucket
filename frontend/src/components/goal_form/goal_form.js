@@ -46,7 +46,9 @@ class GoalForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         let goal = this.state; 
-        this.props.createGoal(goal);
+        this.props.createGoal(goal).then(() => {
+            this.props.switchPane('profile');
+        });
         this.setState({
             title: '',
             description: '',
@@ -92,7 +94,7 @@ class GoalForm extends React.Component {
             <div className="goal-form-outer-div">
                 <form className="goal-form" onSubmit={this.handleSubmit}>
                     <div className="add-goal-header-box">
-                        <h3>Add a new Goal</h3>
+                        <h1>CREATE GOAL</h1>
                     </div>
                     <div className="input-div">
                         <label>title</label>
@@ -138,7 +140,7 @@ class GoalForm extends React.Component {
                     {this.endDateToggle()}
 
                 <div className="goal-submit-div">
-                    <button className="goal-submit-btn">submit</button>
+                    <button className="goal-submit-btn">Submit</button>
                 </div>
                 {this.renderErrors()}
             </form>

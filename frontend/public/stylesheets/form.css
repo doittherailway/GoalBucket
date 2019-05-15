@@ -11,28 +11,25 @@
     justify-content: center;
 }
 
-.goal-form-outer-div h3 {
-    margin-top: 10px;
+.goal-form-outer-div h1 {
+    font-size: 24px;
+    font-weight: 200;
     margin-bottom: 20px;
-    font-size: 22px;
-    color: #515c66;
 }
 
 .goal-form {
-    /* width: 500px; */
+    width: 400px;
     background-color: white;
     margin-top: 0;
-    margin-left: 20px;
-    padding: 10px;
-    /* border: 1px solid #eee; */
-    border: 2px solid #738290;
+    padding: 30px;
+    border: 1px solid #738290;
     border-radius: 2px;
 }
 
 .goal-form label {
     text-transform: capitalize;
     display: block;
-    color: #515c66;
+    font-weight: 200;
 }
 /* 
 .input-amt {
@@ -41,12 +38,15 @@
 
 
 .goal-input {
-    display: block;
-    padding: 5px;
     margin-top: 10px;
     margin-bottom: 20px;
-    min-width: 250px;
     font-family: 'Roboto', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #738290;
+    border-radius: 2px;
+    outline: none;
 }
 
 .input-amount-box {
@@ -57,7 +57,7 @@
 }
 
 .input-amt {
-        display: flex;
+    display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
@@ -82,6 +82,7 @@
     background-color: #f93943;
     transition: font-size 0.2s;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .input-amt-btn-plus {
@@ -93,6 +94,7 @@
     background-color: #9eff93;
     transition: font-size 0.2s;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .input-amt-btn-plus:hover {
@@ -115,13 +117,17 @@
 
 .goal-form textarea {
     display: block;
-    padding: 5px;
+    box-sizing: border-box;
+    padding: 10px;
     margin-top: 10px;
-    margin-bottom: 10px;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 50px;
-    max-height: 200px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #738290;
+    border-radius: 2px;
+    outline: none;
+    resize: none;
+    overflow: scroll;
 }
 
 .timed-optional-txt {
@@ -148,11 +154,19 @@
 }
 
 .goal-submit-btn {
-    font-size: 24px;
-    width: 200px;
-    height: 50px;
-    color: #515c66;
-    background-color: white;
-    border-radius: 4px;
-    border: 2px solid #515c66;
+    width: 100%;
+    height: 35px;
+    background-color: #738290;
+    transition: background-color 0.2s;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 0px 10px;
+    border-radius: 2px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.goal-submit-btn:hover {
+    background-color: #8a9cad;
 }

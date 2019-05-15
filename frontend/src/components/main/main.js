@@ -22,11 +22,11 @@ class Main extends React.Component {
         return (
             <div className='main-page'>
                 <div>
-                    <AsideContainer switchPane={this.switchPane} />
+                    <AsideContainer switchPane={this.switchPane} selected={this.state.selected} />
                     <div className='main-page-right' id={this.props.aside ? '' : 'aside-overlay' }>
                         {this.state.selected === 'goals' ? <GoalsContainer /> : ''}
                         {this.state.selected === 'profile' ? <ProfileContainer /> : ''}
-                        {this.state.selected === 'create' ? <CreateGoalFormContainer /> : ''}
+                        {this.state.selected === 'create' ? <CreateGoalFormContainer switchPane={this.switchPane} /> : ''}
                     </div>
                 </div>
             </div>

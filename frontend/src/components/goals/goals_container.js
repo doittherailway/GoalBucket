@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchGoals, patchGoal } from '../../actions/goal_actions';
+import { fetchGoals, patchGoal, createCheer, deleteCheer } from '../../actions/goal_actions';
 import { fetchUsers } from '../../actions/user_actions'; 
 import { selectUserGoals } from '../../util/goals_selector';
 import GoalsIndex from './goals_index';
@@ -8,6 +8,7 @@ const mapStateToPropsIndex = (state) => {
     return {
         goals: Object.values(state.entities.goals),
         currentUser: state.session.user,
+        users: Object.values(state.entities.users),
         filtered: false
     };
 };
@@ -24,7 +25,9 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchGoals: () => dispatch(fetchGoals()),
         patchGoal: (goal) => dispatch(patchGoal(goal)),
-        fetchUsers: () => dispatch(fetchUsers())
+        fetchUsers: () => dispatch(fetchUsers()),
+        createCheer: (goalId) => dispatch(createCheer(goalId)),
+        deleteCheer: (goalId) => dispatch(deleteCheer(goalId))
     };
 };
 
