@@ -46,9 +46,11 @@ Technical Challenges:
 ## Feature Highlights
 
 ### Goal completion UI
+![alt text](https://github.com/doittherailway/GoalBucket/blob/master/images/profile-page.gif "Goal completion UI")
 * As the user completes steps towards their goal, the progress bar can be incremented via a button to show the updated progress. Upon completion, the goal is marked as 'Complete' and counts towards the user stats. When a goal is incremented via the UI, the update goal route runs checks to see if the goal is now completed, and if so, changes the status to done in the database, which triggers an update on the front end visually. This UI change was implemented using React components, subscribing various parts of the user profile and goal to the appropriate slice of Redux state.
 
 ### Hamburger menu aside UI
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/aside.gif "Hamburger menu aside UI")
 * When a user clicks on the hamburger icon (three horizontal bars), the side menu expands/collapses. This was implemented using Redux state and an onClick event listener to update the state and change the UI accordingly.
 
 
@@ -65,7 +67,7 @@ Technical Challenges:
 
 * Search Goal tags/categories
  
-### Wireframes
+### Screenshots
 ![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Splash_live.png "Splash")
 ![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Feed_live.png "Feed")
 ![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Profile_live.png "Profile")
