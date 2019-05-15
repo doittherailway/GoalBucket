@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoalsProfileContainer } from '../goals/goals_container';
 import UserStats from './user_stats';
+import Trophies from './trophies'; 
 
 class Profile extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class Profile extends React.Component {
                             <img className="user-icon" src="/images/user_icon_pug.png" alt="user icon" />
                         </div>
                         <div className="user-profile-username">
-                            Username
+                            username : -} 
                         </div>
                     </div>
                     <div className="user-top-stats">
@@ -35,7 +36,7 @@ class Profile extends React.Component {
                     </div>   
                 </div>
                 <div className="user-trophies">
-                    [trophies]
+                    <Trophies goals={this.props.goals}/>
                 </div>
             </div>
             <div className="user-bottom-profile">
