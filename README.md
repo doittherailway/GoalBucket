@@ -1,8 +1,15 @@
 # Goal Bucket
 
+[GoalBucket Live Site](https://goalbucket.herokuapp.com)
+
 ## Background and Overview
  Goal Bucket is a goal setting and accountability social webapp that allows users to set goals, make progress on their goals, and cheer on their friends goals. Users can also show off their trophy case of achieved goals.
 
+## Team Members
+* [Priya Balasubramanian](https://github.com/pbalasubramanian)
+* [Keyang Sun](https://github.com/keyangsun)
+* [Jay Swanson](https://github.com/jrswanson)
+* [Sandi Rail](https://github.com/doittherailway)
 
 ## Functionality and MVP
 
@@ -14,20 +21,12 @@
   * Users can see a feed of their goals
 
 * Friends/Cheers
-  * Users can follow and be followed by other users
-  * Users can see a feed of their friends goals
   * Users can cheer on each others goals.
 
 * Goals Stats
   * Users have a visualisation for different stats about their goals (eg. number of goals, average completion rating, fastest completed etc).
+  * Users have a trophy case of their completed goals.
 
-### Bonus
-
-* Host Pictures
-
-* Comments
-
-* Search Goal tags/categories
 
 ## Technologies and Technical Challenges
 
@@ -43,74 +42,28 @@ Frontend
 Technical Challenges:
 * Learning MERN stack
 
-## Things Accomplished Over the Weekend
- * Planning project
- * Familiarisation with MERN stack, user auth
- * Set up database
- * Wrote proposal READme
- * Created wireframes
 
-## Group Members and Work Breakdown
+## Feature Highlights
 
-### Group members: Jay Swanson, Keyang Sun, Priya Balasubramanian, Sandi Rail
+### Goal completion UI
+* As the user completes steps towards their goal, the progress bar can be incremented via a button to show the updated progress. Upon completion, the goal is marked as 'Complete' and counts towards the user stats. When a goal is incremented via the UI, the update goal route runs checks to see if the goal is now completed, and if so, changes the status to done in the database, which triggers an update on the front end visually. This UI change was implemented using React components, subscribing various parts of the user profile and goal to the appropriate slice of Redux state.
 
-### May 11- May 12
-
-* Become familiar with MERN stack and user authenticiation - All
-* Planning, backend/frontend and component breakdown - All
-* Wireframe mockups - Jay, Keyang 
-* User auth refactoring and initial Github setup - Keyang
-* Routing - Priya
-* Models - Sandi
-* Validations - Priya
-* Proposal/Readme - Sandi
-* Splash page - Keyang
-* Session forms modal - Jay
-* Stylesheet initializing - Jay/Keyang
-
-### May 13
-* Jay:
-  * Finish styling session forms
-  * Goal feed index item components
-  * Goal feed index item component styling
-* Keyang:
-  * Create goal form component
-  * Style goal form
-* Priya:
-  * Goal feed index component
-  * Goal form component
-* Sandi:
-  * Goal feed index item components
-  * Goals actions
-* All:
-  * Review pull requests
-  * Add seed data
-  * Decide on selectors for index feed
-  * Additional styling
-  * Goals actions/axios requests
+### Hamburger menu aside UI
+* When a user clicks on the hamburger icon (three horizontal bars), the side menu expands/collapses. This was implemented using Redux state and an onClick event listener to update the state and change the UI accordingly.
 
 
-### May 14
-* Jay:
-  * Followers/Following actions/axios requests
-* Keyang:
-  * Followers/Following components
-* Priya:
-  * User profile component
-  * Cheers actions/axios requests
-* Sandi:
-  * Goal stats container and component
-* All
-  * Review pull requests
-  * Style components
-  * Pair program to complete tasks
 
-### May 15
-* Production READme
-* Styling 
+### Future Features
 
-## Plan for getting users
- * Sharing with friends and family
+* Users can follow and be followed by other users
+
+* Users can see a feed of their friends goals
+
+* Host Pictures
+
+* Comments
+
+* Search Goal tags/categories
  
 ### Wireframes
 ![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Splash.png "Splash")
