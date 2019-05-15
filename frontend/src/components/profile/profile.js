@@ -12,7 +12,7 @@ class Profile extends React.Component {
     }
 
     componentWillMount() {
-        console.log(this.props.currentUser.id)
+        //console.log(this.props.currentUser.id)
     }
 
     componentWillReceiveProps(newState) {

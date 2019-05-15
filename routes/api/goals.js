@@ -98,8 +98,6 @@ router.patch('/cheers',
 router.delete('/cheers/:goalId',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        // console.log("in here");
-        // console.log(req.params);
         Goal.findById(req.params.goalId)
             .then(
                 goal => {
