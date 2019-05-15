@@ -113,6 +113,23 @@ class GoalIndexItem extends React.Component {
         }
     }
 
+    getUsername() {
+        let usrname = "";
+
+        console.log(this.props.filtered);
+        if (!this.props.filtered) {
+            for(let i=0; i<this.props.users.length; i++) {
+                if( this.props.users[i]._id === this.props.goal.user) {
+                    usrname = this.props.users[i].username;
+                }
+            }
+        
+            return(
+                <h6>Username: {usrname}</h6>
+            );
+        }
+    }
+
     render() {
         
         let percentageVal = Math.floor(((this.state.goalCurrentAmount)/this.props.goal.goalAmount)*100);
@@ -122,7 +139,7 @@ class GoalIndexItem extends React.Component {
         return (
             <div className="goal-index-item">
                 <h3>Title: {this.props.goal.title}</h3>
-                
+                {this.getUsername()}
                 <h6>Description: {this.props.goal.description}</h6>
 
                 <div className="progress-info">

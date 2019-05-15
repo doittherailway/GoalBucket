@@ -8,6 +8,7 @@ const mapStateToPropsIndex = (state) => {
     return {
         goals: Object.values(state.entities.goals),
         currentUser: state.session.user,
+        users: Object.values(state.entities.users),
         filtered: false
     };
 };
