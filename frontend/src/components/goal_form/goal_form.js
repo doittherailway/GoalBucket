@@ -46,7 +46,9 @@ class GoalForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault(); 
         let goal = this.state; 
-        this.props.createGoal(goal);
+        this.props.createGoal(goal).then(() => {
+            this.props.switchPane('profile');
+        });
         this.setState({
             title: '',
             description: '',

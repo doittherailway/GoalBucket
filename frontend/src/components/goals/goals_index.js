@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import GoalIndexItem from './goal_index_item';
+import { sortByCreateDate } from '../../util/goals_selector';
 
 class Goal extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class Goal extends React.Component {
     }
 
     componentWillReceiveProps(newState) {
-        this.setState({ goals: newState.goals });
+        this.setState({ goals: sortByCreateDate(newState.goals) });
     }
 
     render() {

@@ -13,6 +13,10 @@ class Aside extends React.Component {
         this.handleCreate = this.handleCreate.bind(this);
     }
 
+    componentWillReceiveProps(newState) {
+        this.setState({ selected: newState.selected });
+    }
+
     handleGoals(e) {
         e.preventDefault();
         this.setState({ selected: 'goals' });
