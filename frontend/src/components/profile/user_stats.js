@@ -3,6 +3,22 @@ import { goalStatsMulti } from '../../util/user_stats_util';
 
 const UserStats = ({ goals }) => {
     let goalStats = goalStatsMulti(goals);
+    console.log(goals);
+    const shortestGoal = () => {
+        if (goalStats.shortestGoal.title === "N/A") {
+            return <p className="stats-number"> - </p>;
+        } else {
+            return <p className="stats-number">{goalStats.shortestGoal.title}, {goalStats.shortestGoal.length} days</p >
+        }
+    }
+
+    const longestGoal = () => {
+        if (goalStats.longestGoal.title === "N/A") {
+            return <p className="stats-number"> - </p>;
+        } else {
+            return <p className="stats-number">{goalStats.longestGoal.title}, {goalStats.longestGoal.length} days</p >
+        }
+    }
 
     return (
         <div>
@@ -18,10 +34,10 @@ const UserStats = ({ goals }) => {
                     <p className="stats-text">Percent Completed: </p><p className="stats-number">{goalStats.goalPercent}%</p>
                 </div>
                 <div className="stats-line">
-                    <p className="stats-text">Shortest Completed: </p><p className="stats-number">{goalStats.shortestGoal.title}, {goalStats.shortestGoal.length} days</p >
+                    <p className="stats-text">Shortest Completed: </p>{shortestGoal()}
                 </div>
                 <div className="stats-line">
-                    <p className="stats-text">Longest Completed: </p><p className="stats-number">{goalStats.longestGoal.title}, {goalStats.longestGoal.length} days</p >
+                    <p className="stats-text">Longest Completed: </p>{longestGoal()}
                 </div>
             </div>
         </div>
