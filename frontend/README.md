@@ -1,68 +1,118 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Goal Bucket- Proposal
 
-## Available Scripts
+## Background and Overview
+ Goal Bucket is a goal setting and accountability social webapp that allows users to set goals, make progress on their goals, and cheer on their friends goals. Users can also show off their trophy case of achieved goals.
 
-In the project directory, you can run:
 
-### `npm start`
+## Functionality and MVP
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* User Auth/Account creation
+  * Users can create an account, login and logout.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+* Goals CRUD
+  * Users can create/edit/delete goals, set a description and units/timeline.
+  * Users can see a feed of their goals
 
-### `npm test`
+* Friends/Cheers
+  * Users can follow and be followed by other users
+  * Users can see a feed of their friends goals
+  * Users can cheer on each others goals.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Goals Stats
+  * Users have a visualisation for different stats about their goals (eg. number of goals, average completion rating, fastest completed etc).
 
-### `npm run build`
+### Bonus
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Host Pictures
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* Comments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Search Goal tags/categories
 
-### `npm run eject`
+## Technologies and Technical Challenges
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Backend
+* MongoDB
+* Express
+* Node.js
+Frontend
+* React
+* Redux
+* Javascript
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Technical Challenges:
+* Learning MERN stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Things Accomplished Over the Weekend
+ * Planning project
+ * Familiarisation with MERN stack, user auth
+ * Set up database
+ * Wrote proposal READme
+ * Created wireframes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Group Members and Work Breakdown
 
-## Learn More
+### Group members: Jay Swanson, Keyang Sun, Priya Balasubramanian, Sandi Rail
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### May 11- May 12
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Become familiar with MERN stack and user authenticiation - All
+* Planning, backend/frontend and component breakdown - All
+* Wireframe mockups - Jay, Keyang 
+* User auth refactoring and initial Github setup - Keyang
+* Routing - Priya
+* Models - Sandi
+* Validations - Priya
+* Proposal/Readme - Sandi
+* Splash page - Keyang
+* Session forms modal - Jay
+* Stylesheet initializing - Jay/Keyang
 
-### Code Splitting
+### May 13
+* Jay:
+  * Finish styling session forms
+  * Goal feed index item components
+  * Goal feed index item component styling
+* Keyang:
+  * Create goal form component
+  * Style goal form
+* Priya:
+  * Goal feed index component
+  * Goal form component
+* Sandi:
+  * Goal feed index item components
+  * Goals actions
+* All:
+  * Review pull requests
+  * Add seed data
+  * Decide on selectors for index feed
+  * Additional styling
+  * Goals actions/axios requests
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+### May 14
+* Jay:
+  * Followers/Following actions/axios requests
+* Keyang:
+  * Followers/Following components
+* Priya:
+  * User profile component
+  * Cheers actions/axios requests
+* Sandi:
+  * Goal stats container and component
+* All
+  * Review pull requests
+  * Style components
+  * Pair program to complete tasks
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### May 15
+* Production READme
+* Styling 
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Plan for getting users
+ * Sharing with friends and family
+ 
+### Wireframes
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Splash.png "Splash")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Feed.png "Feed")
+![alt text](https://raw.githubusercontent.com/doittherailway/GoalBucket/master/images/Profile.png "Profile")
