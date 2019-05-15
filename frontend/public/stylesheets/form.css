@@ -20,10 +20,10 @@
 .goal-form {
     width: 400px;
     background-color: white;
-    margin-top: 0;
     padding: 30px;
-    border: 1px solid #738290;
-    border-radius: 2px;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
 }
 
 .goal-form label {
