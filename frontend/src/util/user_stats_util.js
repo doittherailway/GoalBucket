@@ -40,9 +40,14 @@ export const shortestGoalCompleted = (goals) => {
     }
 
     if (length === undefined) {
-        return "N/A"
+        return { length: "N/A", title: "N/A" }
     } else {
-        return { length: length * 86400000, title: goalTitle};
+        let l = +(length / 86400000).toFixed(2);
+        if (l < 1) {
+            return { length: l, title: goalTitle};
+        } else {
+            return { length: Math.round(l), title: goalTitle}
+        }
     }
 }
 
@@ -63,9 +68,14 @@ export const longestGoalCompleted = (goals) => {
     }
 
     if (length === undefined) {
-        return "N/A"
+        return {length: "N/A", title: "N/A"}
     } else {
-        return { length: length * 86400000, title: goalTitle };
+        let l = +(length / 86400000).toFixed(2);
+        if (l < 1) {
+            return { length: l, title: goalTitle };
+        } else {
+            return { length: Math.round(l), title: goalTitle }
+        }
     }
 }
 
