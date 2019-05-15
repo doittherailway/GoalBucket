@@ -20,7 +20,7 @@ export const userGoalPercentComplete = (goals) => {
     let completed = userGoalCountComplete(goals);
     let total = goals.length
 
-    return +(completed/total).toFixed(2);
+    return +(completed/total).toFixed(2) * 100;
 }
 
 export const shortestGoalCompleted = (goals) => {
@@ -28,7 +28,7 @@ export const shortestGoalCompleted = (goals) => {
     let goalTitle;
     for (let i = 0; i < goals.length; i++) {
         if (goals[i].done === true) {
-            let currLength = goals[i].finishDate - goals[i].createDate
+            let currLength = new Date(goals[i].finishDate).getTime() - new Date(goals[i].createDate).getTime();
             if (length === undefined) {
                 length = currLength;
                 goalTitle = goals[i].title
@@ -42,7 +42,7 @@ export const shortestGoalCompleted = (goals) => {
     if (length === undefined) {
         return "N/A"
     } else {
-        return {length: length, title: goalTitle};
+        return { length: length * 86400000, title: goalTitle};
     }
 }
 
@@ -51,7 +51,7 @@ export const longestGoalCompleted = (goals) => {
     let goalTitle;
     for (let i = 0; i < goals.length; i++) {
         if (goals[i].done === true) {
-            let currLength = goals[i].finishDate - goals[i].createDate
+            let currLength = new Date(goals[i].finishDate).getTime() - new Date(goals[i].createDate).getTime()
             if (length === undefined) {
                 length = currLength;
                 goalTitle = goals[i].title;
@@ -65,7 +65,7 @@ export const longestGoalCompleted = (goals) => {
     if (length === undefined) {
         return "N/A"
     } else {
-        return { length: length, title: goalTitle };
+        return { length: length * 86400000, title: goalTitle };
     }
 }
 
