@@ -3,7 +3,7 @@ import { goalStatsMulti } from '../../util/user_stats_util';
 
 const UserStats = ({ goals }) => {
     let goalStats = goalStatsMulti(goals);
-    console.log(goals);
+
     const shortestGoal = () => {
         if (goalStats.shortestGoal.title === "N/A") {
             return <p className="stats-number"> - </p>;

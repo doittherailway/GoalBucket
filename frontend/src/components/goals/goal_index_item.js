@@ -116,7 +116,6 @@ class GoalIndexItem extends React.Component {
     getUsername() {
         let usrname = "";
 
-        console.log(this.props.filtered);
         if (!this.props.filtered) {
             for(let i=0; i<this.props.users.length; i++) {
                 if( this.props.users[i]._id === this.props.goal.user) {
