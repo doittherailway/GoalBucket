@@ -58,15 +58,15 @@ export const patchGoal = goal => dispatch => (
         .catch(err => console.log(err.response.data))
 );
 
-export const createCheer = goalId => dispatch => (
-    addCheer(goalId)
-        .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
+export const createCheer = goalId => dispatch => {
+    return addCheer(goalId)
+        .then(updatedGoal => dispatch(receiveGoal(updatedGoal.data)))
         .catch(err => console.log(err.response.data))
-);
+}
 
 export const deleteCheer = goalId => dispatch => (
     removeCheer(goalId)
-        .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
+        .then(updatedGoal => dispatch(receiveGoal(updatedGoal.data)))
         .catch(err => console.log(err.response.data))
 );
 

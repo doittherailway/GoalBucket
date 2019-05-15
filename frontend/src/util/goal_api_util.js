@@ -17,9 +17,9 @@ export const updateGoal = goal => {
 }; 
 
 export const addCheer = goalId => {
-    return axios.patch('/api/goals/cheers', goalId);
+    return axios.patch('/api/goals/cheers', { goalId });
 };
 
 export const removeCheer = goalId => {
-    return axios.delete('/api/goals/cheers', goalId);
+    return axios.delete(`/api/goals/cheers/${goalId}`);
 };
