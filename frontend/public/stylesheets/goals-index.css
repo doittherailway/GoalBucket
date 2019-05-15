@@ -23,6 +23,11 @@
     width: 90%;
 }
 
+.goal-info-top {
+    display: flex;
+    justify-content: space-between;
+}
+
 .goal-index-item h3 {
     font-size: 20px;
     padding-left: 15px;
@@ -61,6 +66,7 @@
     background-color: #9EFF93;
     transition: font-size 0.2s;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .progress-bar { 
@@ -164,23 +170,16 @@
 }
 
 
-#overlay-image {
-  position: absolute;
-  top: -110px;
-  right: 20px;
-  text-align: center;
-  z-index: 10;
-  pointer-events: none;
-}
 
-#overlay-image img {
-    /* width: 100px; */
-    height: 90px;
+.completed-stamp {
+    height: 80px;
+    padding: 20px 15px;
 }
 
 .cheer-span {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .fa-child {

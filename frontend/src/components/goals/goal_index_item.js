@@ -79,15 +79,14 @@ class GoalIndexItem extends React.Component {
     overlayImage(percentageVal) {
         if( percentageVal === 100 ) {
             return (
-                <div id="overlay-image">
-                    <img src="/images/completed-stamp.png" alt="completed-stamp"/>
-                </div>
+                <img src="/images/completed-stamp.png"
+                    alt="completed-stamp"
+                    className='completed-stamp'/>
             );
         }
 
         return (
-            <div id="overlay-image">
-            </div>
+            ''
         );
 
     }
@@ -137,9 +136,14 @@ class GoalIndexItem extends React.Component {
 
         return (
             <div className="goal-index-item">
-                <h3>Title: {this.props.goal.title}</h3>
-                {this.getUsername()}
-                <h6>Description: {this.props.goal.description}</h6>
+                <div className='goal-info-top'>
+                    <div className='goal-info-left'>
+                        <h3>Title: {this.props.goal.title}</h3>
+                        {this.getUsername()}
+                        <h6>Description: {this.props.goal.description}</h6>
+                    </div>
+                    {this.overlayImage(percentageVal)}
+                </div>
 
                 <div className="progress-info">
                     <div className="progress-bar">
@@ -147,7 +151,6 @@ class GoalIndexItem extends React.Component {
                         {this.progressBarSpanRemaining(percentageRemaining)}
                     </div>
                     {this.showUpdate()}
-                    {this.overlayImage(percentageVal)}
                     {/* {this.updateActualCheer()}     */}
                 </div>
                 
