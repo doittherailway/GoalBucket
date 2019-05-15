@@ -1,6 +1,7 @@
 .goals-index {
     margin-top: 5px;
     color: #515C66;
+    font-weight: 100;
 }
 
 .goal-title {
@@ -16,6 +17,9 @@
     box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
     background-color: white;
     border-radius: 2px;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.39);  
     width: 90%;
 }
 
@@ -46,10 +50,10 @@
 }
 
 .plus-button {
-    margin-left: 12px;
+    margin-left: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 20px;
+    margin-right: 25px;
     height: 30px;
     width: 30px;
     border-radius: 2px;
