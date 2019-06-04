@@ -3,7 +3,7 @@
 [GoalBucket Live Site](https://goalbucket.herokuapp.com)
 
 ## Background and Overview
- Goal Bucket is a goal setting and accountability social webapp that allows users to set goals, make progress on their goals, and cheer on their friends goals. Users can also show off their trophy case of achieved goals.
+ Goal Bucket is a goal setting and accountability social webapp that allows users to set goals, make progress on their goals, and cheer on their friends' goals. Users can also show off their trophy case of achieved goals.
 
 ## Team Members
 * [Priya Balasubramanian](https://github.com/pbalasubramanian)
