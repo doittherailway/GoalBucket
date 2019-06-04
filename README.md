@@ -34,6 +34,7 @@ Backend
 * MongoDB
 * Express
 * Node.js
+
 Frontend
 * React
 * Redux
