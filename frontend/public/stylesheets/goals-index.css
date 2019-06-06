@@ -28,6 +28,15 @@
     justify-content: space-between;
 }
 
+.goal-info-right {
+    display: flex;
+}
+
+.fa-trash-alt {
+    padding: 10px 10px 0px 0px;
+    cursor: pointer;
+}
+
 .goal-index-item h3 {
     font-size: 20px;
     padding-left: 15px;

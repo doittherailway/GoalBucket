@@ -23,7 +23,7 @@ class Goal extends React.Component {
 
     render() {
         if (this.state.goals.length === 0) {
-            return (<div>There are no Goals</div>)
+            return (<div>...</div>)
         } else {
             return (
                 <div className="goals-index">
@@ -34,6 +34,7 @@ class Goal extends React.Component {
                             patchGoal={this.props.patchGoal} 
                             createCheer={this.props.createCheer} 
                             deleteCheer={this.props.deleteCheer}
+                            deleteGoal={this.props.deleteGoal}
                             currentUser={this.props.currentUser}
                             users={this.props.users} 
                             filtered={this.props.filtered} />

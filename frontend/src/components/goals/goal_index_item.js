@@ -14,6 +14,7 @@ class GoalIndexItem extends React.Component {
         }
         this.updateGoalAmount = this.updateGoalAmount.bind(this);
         this.progressBarSpan = this.progressBarSpan.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
 
     progressBarSpan(percentageCompleted) {
@@ -57,6 +58,23 @@ class GoalIndexItem extends React.Component {
                     <span>{this.props.goal.cheers.length} cheers</span>
                 </span>
             );
+        }
+    }
+
+    handleDelete() {
+        if (window.confirm('Are you sure you want to permanently delete this goal? This action cannot be undone!')) {
+            this.props.deleteGoal(this.props.goal._id);
+        }
+    }
+
+    showDelete() {
+        if (this.props.goal.user === this.props.currentUser.id) {
+            console.log(this.props)
+            return (
+                <i class="far fa-trash-alt"
+                    onClick={this.handleDelete}>
+                </i>
+            )
         }
     }
 
@@ -142,7 +160,10 @@ class GoalIndexItem extends React.Component {
                         {this.getUsername()}
                         <h6>Description: {this.props.goal.description}</h6>
                     </div>
-                    {this.overlayImage(percentageVal)}
+                    <div className='goal-info-right'>
+                        {this.overlayImage(percentageVal)}
+                        {this.showDelete()}
+                    </div>
                 </div>
 
                 <div className="progress-info">
