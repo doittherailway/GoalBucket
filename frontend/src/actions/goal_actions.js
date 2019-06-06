@@ -3,33 +3,40 @@ import { getGoals,
     addGoal,
     updateGoal,
     addCheer,
-    removeCheer
+    removeCheer,
+    removeGoal
 } from '../util/goal_api_util'; 
 
 export const RECEIVE_GOALS = "RECEIVE_GOALS"; 
 export const RECEIVE_GOAL = "RECEIVE_GOAL";
 export const RECEIVE_USER_GOALS = "RECEIVE_USER_GOALS"; 
 export const RECEIVE_GOAL_ERRORS = "RECEIVE_GOAL_ERRORS"; 
+export const REMOVE_GOAL = 'REMOVE_GOAL';
 
 
 const receiveGoals = goals => ({
     type: RECEIVE_GOALS, 
     goals
-})
+});
 
 const receiveGoal = goal => ({
     type: RECEIVE_GOAL,
     goal
-})
+});
 
 const receiveUserGoals = goals => ({
     type: RECEIVE_USER_GOALS, 
     goals
-})
+});
 
 const receiveGoalErrors = errors => ({
     type: RECEIVE_GOAL_ERRORS,
     errors
+});
+
+const removeOneGoal = goal => ({
+    type: REMOVE_GOAL,
+    goal
 });
 
 export const fetchGoals = () => dispatch => (
@@ -70,9 +77,9 @@ export const deleteCheer = goalId => dispatch => (
         .catch(err => console.log(err.response.data))
 );
 
-// export const deleteGoal = id => dispatch => (
-//     removeGoal(id)
-//         .then( goal => console.log(goal))
-//         .catch( err => console.log(err))
-// );
+export const deleteGoal = id => dispatch => (
+    removeGoal(id)
+        .then(goal => dispatch(removeOneGoal(goal)))
+        .catch(err => dispatch(receiveGoalErrors(err.response.data)))
+);
 

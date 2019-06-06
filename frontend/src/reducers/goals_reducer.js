@@ -1,10 +1,11 @@
 import { 
     RECEIVE_GOALS, 
     RECEIVE_GOAL,
+    REMOVE_GOAL
     } from '../actions/goal_actions'; 
 
 const goalsReducer = (state = {}, action) => {
-    Object.freeze(state)
+    Object.freeze(state);
     let newState = Object.assign({}, state);
 
     switch(action.type) {
@@ -13,6 +14,9 @@ const goalsReducer = (state = {}, action) => {
         case RECEIVE_GOAL: 
             newState[action.goal._id] = action.goal; 
             return newState; 
+        case REMOVE_GOAL:
+            delete newState[action.goal._id];
+            return newState;
         // case RECEIVE_USER_GOALS: 
         //     newState.user = action.goals.data; 
         //     return newState; 
