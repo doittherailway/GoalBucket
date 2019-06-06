@@ -23,3 +23,11 @@ export const addCheer = goalId => {
 export const removeCheer = goalId => {
     return axios.delete(`/api/goals/cheers/${goalId}`);
 };
+
+export const removeGoal = id => {
+    return axios.delete(`/api/goals/${id}`); 
+};
+
+// testing 
+window.removeGoal = removeGoal; 
+// end testing

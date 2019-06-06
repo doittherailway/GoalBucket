@@ -114,6 +114,19 @@ router.delete('/cheers/:goalId',
     }
 );
 
+// remove goals
+router.delete('/:id',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        Goal.findByIdAndDelete(
+            req.params.id, 
+            goal => {
+                res.json(goal); 
+            }
+        );
+    }
+);
+
 // goal update req
 router.patch('/:id',
     (req, res) => {
