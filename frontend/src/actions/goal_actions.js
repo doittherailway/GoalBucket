@@ -70,3 +70,9 @@ export const deleteCheer = goalId => dispatch => (
         .catch(err => console.log(err.response.data))
 );
 
+// export const deleteGoal = id => dispatch => (
+//     removeGoal(id)
+//         .then( goal => console.log(goal))
+//         .catch( err => console.log(err))
+// );
+
