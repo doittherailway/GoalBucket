@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchGoals, patchGoal, createCheer, deleteCheer } from '../../actions/goal_actions';
+import { fetchGoals, patchGoal, createCheer, deleteCheer, deleteGoal } from '../../actions/goal_actions';
 import { fetchUsers } from '../../actions/user_actions'; 
 import { selectUserGoals } from '../../util/goals_selector';
 import GoalsIndex from './goals_index';
@@ -27,7 +27,8 @@ const mapDispatchToProps = dispatch => {
         patchGoal: (goal) => dispatch(patchGoal(goal)),
         fetchUsers: () => dispatch(fetchUsers()),
         createCheer: (goalId) => dispatch(createCheer(goalId)),
-        deleteCheer: (goalId) => dispatch(deleteCheer(goalId))
+        deleteCheer: (goalId) => dispatch(deleteCheer(goalId)),
+        deleteGoal: (goalId) => dispatch(deleteGoal(goalId))
     };
 };
 

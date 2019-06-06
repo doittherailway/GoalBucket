@@ -34,9 +34,9 @@ const receiveGoalErrors = errors => ({
     errors
 });
 
-const removeOneGoal = goal => ({
+const removeOneGoal = goalId => ({
     type: REMOVE_GOAL,
-    goal
+    goalId
 });
 
 export const fetchGoals = () => dispatch => (
@@ -79,7 +79,7 @@ export const deleteCheer = goalId => dispatch => (
 
 export const deleteGoal = id => dispatch => (
     removeGoal(id)
-        .then(goal => dispatch(removeOneGoal(goal)))
+        .then(() => dispatch(removeOneGoal(id)))
         .catch(err => dispatch(receiveGoalErrors(err.response.data)))
 );
 

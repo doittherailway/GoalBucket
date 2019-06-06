@@ -15,7 +15,7 @@ const goalsReducer = (state = {}, action) => {
             newState[action.goal._id] = action.goal; 
             return newState; 
         case REMOVE_GOAL:
-            delete newState[action.goal._id];
+            delete newState[action.goalId];
             return newState;
         // case RECEIVE_USER_GOALS: 
         //     newState.user = action.goals.data; 
