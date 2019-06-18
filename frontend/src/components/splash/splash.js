@@ -40,10 +40,13 @@ class Splash extends React.Component {
                     </div>
                 </div>
                 <div className="splash-btm">
-                    <p> What is GoalBucket? You can set your goals, 
-                        update your progress, and cheer on your friends to reach their goals. Goal Bucket is 
-                        all about the humble brag and show casing your achievements. Start setting your goals today!
-                    </p>
+                    <div className="splash-btm-text">
+                        <p> What is GoalBucket? You can set your goals, 
+                            update your progress, and cheer on your friends to reach their goals. 
+                        </p>
+                        <p>Goal Bucket is all about the humble brag and show casing your achievements. Start setting your goals today!
+                        </p>
+                    </div>
                 </div>
             </div>
         );
