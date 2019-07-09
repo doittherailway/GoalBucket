@@ -11,22 +11,12 @@
 * [Jay Swanson](https://github.com/jrswanson)
 * [Sandi Rail](https://github.com/doittherailway)
 
-## Functionality and MVP
+## Features Overview
 
 * User Auth/Account creation
-  * Users can create an account, login and logout.
-
 * Goals CRUD
-  * Users can create/edit/delete goals, set a description and units/timeline.
-  * Users can see a feed of their goals
-
-* Friends/Cheers
-  * Users can cheer on each others goals.
-
+* Goal Cheering
 * Goals Stats
-  * Users have a visualisation for different stats about their goals (eg. number of goals, average completion rating, fastest completed etc).
-  * Users have a trophy case of their completed goals.
-
 
 ## Technologies and Technical Challenges
 
